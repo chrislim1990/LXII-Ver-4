@@ -75,11 +75,6 @@
 		image.src = "img/brokenlink.jpg";
 		return true;
 	};
-	$(function() {
-		$('#slides').superslides({
-			hashchange: true
-		});
-	});
 
 	$(document).ready(function() {
 		$('#testi').rhinoslider({
@@ -104,8 +99,6 @@
 			showControls: 'never'
 		});
 	});
-
-	$('.menu-icon').tooltip();
 
 	<?php
 	if($this->uri->segment(1) == "order"){

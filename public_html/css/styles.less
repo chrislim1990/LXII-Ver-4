@@ -384,9 +384,22 @@ hr {
 .slides-pagination a.current {
   background-color: #ffffff;
 }
-.desc.D-Coat {
+// home slideshow custom positioning
+#d-coat {
   left: 15%;
   top: 30%;
+}
+#new-mogen {
+  top: 60%;
+  .categories{
+    margin-bottom: 50px;
+  }
+}
+#logo{
+  top: 75%;
+  .project, .categories{
+    display: none;
+  }
 }
 .footer {
   padding-left: 60px;
@@ -544,7 +557,8 @@ hr {
   color: #ffffff;
 }
 .portfolio .potrait,
-.portfolio .landscape {
+.portfolio .landscape,
+.portfolio .logo_item {
   float: left;
   margin-bottom: 1%;
   margin-right: 1%;
@@ -554,6 +568,9 @@ hr {
 }
 .portfolio .landscape {
   width: 99%;
+}
+.portfolio .logo_item{
+  width: 32.3%;
 }
 .portfolio .call_to_action a {
   border: none;
@@ -829,23 +846,22 @@ b{
 
 // Push Menu
 #view_cart{
-  position: fixed;
-  right: 15px;
-  top: 15px;
-  cursor: pointer;
-  z-index: 10000;
-  color: #000;
-  font-size: 16px;
-  font-weight: normal;
-  i{
-    margin-right: 10px;
-  }
-  #cart_count{
-    padding: 3px 8px;
-    background-color: #EEE;
-    border: 1px solid #DDD;
-    margin-left: 10px;
-  }
+ cursor: pointer;
+ z-index: 10000;
+ color: #000;
+ font-size: 16px;
+ font-weight: normal;
+ float: right;
+ padding: 0 30px;
+ i{
+  margin-right: 10px;
+}
+#cart_count{
+  padding: 3px 8px;
+  background-color: #EEE;
+  border: 1px solid #DDD;
+  margin-left: 10px;
+}
 }
 #cbp-overlay{
   position: fixed;
@@ -1049,6 +1065,12 @@ form{
   z-index: 9999;
   border-bottom: 1px solid #c6d0da;
   color: @grey;
+  .breadcrumbs span{
+    padding: 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
   .gn-menu{
     font-size: 16px;
   }
@@ -1111,6 +1133,7 @@ form{
 // Grid Item
 .col-md-4.grid_item,
 .col-md-8.grid_item {
+  overflow: hidden;
   padding: 0;
   margin: 10px;
   width: 31.5%%;
@@ -1226,5 +1249,17 @@ form{
   }
   img{
     margin-bottom: 5px;
+  }
+}
+#call_us_now{
+  float: right;
+  border-right: none;
+}
+#SkypeButton_Dropdown_services_268_1_paraElement{
+  a:hover{
+    background: none;
+  }
+  img{
+    margin: 18px 40px 18px 30px !important;
   }
 }

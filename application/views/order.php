@@ -5,7 +5,7 @@
 
 <div class="header_banner"></div>
 <div id="product" class="container">
-	<h1>Product</h1>
+	<h1>Products</h1>
 
 	<ul>
 		<li class="filter" data-filter="all">All</li>

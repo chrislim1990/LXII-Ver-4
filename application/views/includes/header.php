@@ -28,6 +28,39 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 </head>
 <body>
 	
+	<?php
+
+	// discard "?" in the url
+	$breadcrumbs = explode("?",$_SERVER["REQUEST_URI"]);
+	
+	// Spli the "/"
+	$breadcrumbs = explode("/",$breadcrumbs[0]);
+	
+	// Discard empty value in array
+	$breadcrumbs = array_filter($breadcrumbs);
+
+	$breadcrumb = "";
+	foreach ($breadcrumbs as $key => $b) {
+
+		switch ($b) {
+			case 'order':
+			$friendly_text = 'products';
+			break;
+			
+			default:
+			$friendly_text = $b;
+			break;
+		}
+
+		if ($key != count($breadcrumbs)) {
+			$tmp_str = "<a href='/$b'>$friendly_text</a>";
+		}else{
+			$tmp_str = "<span>$friendly_text</span>";
+		}
+		$breadcrumb .= "<li class='breadcrumbs'>".$tmp_str."</li>";
+	}
+
+	?>
 
 	<div class='block hide-on-large'></div>
 
@@ -63,4 +96,23 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 			</nav>
 		</li>
 		<li><a href="" id="logo"><img src="img/logo.png"></a></li>
+		<?php echo $breadcrumb ?>
+		<li id="call_us_now">
+			<script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+			<div id="SkypeButton_Dropdown_services_268_1">
+				<script type="text/javascript">
+					Skype.ui({
+						"name": "chat",
+						"element": "SkypeButton_Dropdown_services_268_1",
+						"participants": ["services_268"],
+						"imageColor": "blue",
+						"imageSize": 24
+					});
+				</script>
+			</div>
+		</li>
 	</ul>
+
+
+	
+	

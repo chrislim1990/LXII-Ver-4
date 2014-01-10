@@ -379,9 +379,22 @@ hr {
 .slides-pagination a.current {
   background-color: #ffffff;
 }
-.desc.D-Coat {
+#d-coat {
   left: 15%;
   top: 30%;
+}
+#new-mogen {
+  top: 60%;
+}
+#new-mogen .categories {
+  margin-bottom: 50px;
+}
+#logo {
+  top: 75%;
+}
+#logo .project,
+#logo .categories {
+  display: none;
 }
 .footer {
   padding-left: 60px;
@@ -539,7 +552,8 @@ hr {
   color: #ffffff;
 }
 .portfolio .potrait,
-.portfolio .landscape {
+.portfolio .landscape,
+.portfolio .logo_item {
   float: left;
   margin-bottom: 1%;
   margin-right: 1%;
@@ -549,6 +563,9 @@ hr {
 }
 .portfolio .landscape {
   width: 99%;
+}
+.portfolio .logo_item {
+  width: 32.3%;
 }
 .portfolio .call_to_action a {
   border: none;
@@ -814,14 +831,13 @@ hr {
   margin-bottom: 5px;
 }
 #view_cart {
-  position: fixed;
-  right: 15px;
-  top: 15px;
   cursor: pointer;
   z-index: 10000;
   color: #000;
   font-size: 16px;
   font-weight: normal;
+  float: right;
+  padding: 0 30px;
 }
 #view_cart i {
   margin-right: 10px;
@@ -1031,6 +1047,12 @@ hr {
   border-bottom: 1px solid #c6d0da;
   color: #000000;
 }
+#gn-menu .breadcrumbs span {
+  padding: 0 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
 #gn-menu .gn-menu {
   font-size: 16px;
 }
@@ -1093,6 +1115,7 @@ hr {
 }
 .col-md-4.grid_item,
 .col-md-8.grid_item {
+  overflow: hidden;
   padding: 0;
   margin: 10px;
   width: 31.5%%;
@@ -1207,4 +1230,14 @@ hr {
 }
 #gn-menu #logo img {
   margin-bottom: 5px;
+}
+#call_us_now {
+  float: right;
+  border-right: none;
+}
+#SkypeButton_Dropdown_services_268_1_paraElement a:hover {
+  background: none;
+}
+#SkypeButton_Dropdown_services_268_1_paraElement img {
+  margin: 18px 40px 18px 30px !important;
 }

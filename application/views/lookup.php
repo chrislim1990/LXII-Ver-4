@@ -29,7 +29,7 @@ echo "<div class='header_banner hide-on-small'></div>";
 	<div class="col-md-12">
 		<?php
 
-		$all_imgs = glob("img/portfolio/".$records[0]->url."/*.jpg");
+		$all_imgs = glob("img/portfolio/".$records[0]->url."/imgs/*.jpg");
 		
 		foreach ($all_imgs as $img) {
 			// Potrait or Landscape
@@ -41,6 +41,10 @@ echo "<div class='header_banner hide-on-small'></div>";
 			if ($aspect >= 1) $add_class = "potrait"; 
 			else $add_class = "landscape";
 			
+			if ($records[0]->title == "Logo") {
+				$add_class = "logo_item";
+			}
+
 			echo "<img class='$add_class' src='$img'>";
 
 		}

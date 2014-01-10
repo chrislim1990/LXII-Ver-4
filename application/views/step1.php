@@ -25,7 +25,6 @@ $current_item = $records[0];
 
 		<div class="col-md-5 product_info">
 			
-			<p id="view_cart"><i class="fa fa-shopping-cart"></i> Your Cart <span id="cart_count">0</span></p>
 			<h2 class="title"><?=$current_item->title?></h2>
 			<h3 class="price">MYR <span id="product-price"><?=$current_item->price?></span></h3>
 			<p class="product-desc"><?=$current_item->desc?></p>
@@ -113,3 +112,7 @@ $current_item = $records[0];
 
 <div class="block b100"></div>
 <hr class="nomargin">
+
+<script>
+$("#gn-menu").append("<li id='view_cart'><i class='fa fa-shopping-cart'></i> Your Cart <span id='cart_count'>0</span></li>");
+</script>
