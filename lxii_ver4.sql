@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 08, 2014 at 03:51 AM
+-- Generation Time: Jan 11, 2014 at 09:40 AM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -60,20 +60,23 @@ CREATE TABLE `portfolio` (
   `color` varchar(255) NOT NULL DEFAULT 'white',
   `featured` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `portfolio`
 --
 
 INSERT INTO `portfolio` (`id`, `title`, `tagline`, `desc`, `category`, `url`, `year`, `color`, `featured`) VALUES
-(1, 'Logo', 'Unique . Memorable . Long-lasting', 'The art of designing a logo may looks like a simple task, but to be a truly perfect logo, one has to be with these three major factors: unique, memorable and accurate. \nTo be unique is to stand out among your business opponents. \nTo be memorable is to be able to stays inside your audiences'' mind easily, and attractively. \nLastly, to be accurate is that the logo could delivers your business directly precisely to the audiences. \nWe at LX2 design studios always do our best to put these three major factors into your design.', 'Branding', 'logo', 2010, 'black', 0),
 (3, 'Icy Roll', 'Tasty & Fun', 'With its idea stems upon the feeling of happiness and joyfulness, we created a bright and refreshing look for Icy Roll. Audiences would surely love the colorful and refreshing sight of Icy Roll''s corporate items in hot summer.', 'Branding', 'icyroll', 2012, 'black', 0),
 (4, 'Sentosa Villa', 'Natural Retreat for Everyone', 'In the first sight, the website for Sentosa Villa would bestows the feeling of warm and elegance to its audiences. That is what the hotel owner wishes to deliver: to let the audiences feel as welcoming as possible. \r\n<br><br>\r\nWe used fonts and colors of classical feel to further enhance the elegant feeling a hotel or family resort should have. The contents is delivered in a clean and simple way to aids navigation as older family members were added into our consideration.', 'Branding . Web', 'sentosa', 2012, 'white', 1),
 (5, 'Hock Hean Hui', 'Professional Blues', 'Website for Hock Hean Hui aims at middle age workers and truck drivers, so it mostly emphasizes on the visibility of contents. Thus, we made the website as simple as possible, while also comes with adequate amount of design elements to make it looks modern and clean.', 'Web', 'hhh', 2010, 'black', 0),
 (7, 'Nowax', 'We designed Nowax''s website to be high-tech and modern looking, as suitable to how its industry supposed to be. The color combination of teal and metallic grey clearly delivers the theme of the whole industry.', 'We designed Nowax''s website to be high-tech and modern looking, as suitable to how its industry supposed to be. The color combination of teal and metallic grey clearly delivers the theme of the whole industry.', 'Branding . Web', 'nowax', 2012, 'black', 0),
-(8, 'Hunny B', 'Fun & Tasty', 'The reason we use white and clean background for Hunny B is to attract the audiences with the colorfulness of photos and images in the website. \r\n<br><br>\r\nThe color usage is designed to be brighter and more lively to attract audiences from lower age range.', 'Branding . Web', 'hunnyb', 2010, 'black', 0),
-(9, 'Dukes', 'Professional Confidence', 'Dukes''s branding is done with the expression of professionalism in mind, to bolster the confidence of audiences and encourage them to deal with someone that has the professionalism to deal with their queries.', 'Branding . Web', 'dukes', 2012, 'black', 0);
+(8, 'Logo', 'Unique . Memorable . Long-lasting', 'The art of designing a logo may looks like a simple task, but to be a truly perfect logo, one has to be with these three major factors: unique, memorable and accurate. \nTo be unique is to stand out among your business opponents. \nTo be memorable is to be able to stays inside your audiences'' mind easily, and attractively. \nLastly, to be accurate is that the logo could delivers your business directly precisely to the audiences. \nWe at LX2 design studios always do our best to put these three major factors into your design.', 'Branding', 'logo', 2010, 'black', 0),
+(9, 'Dukes', 'Professional Confidence', 'Dukes''s branding is done with the expression of professionalism in mind, to bolster the confidence of audiences and encourage them to deal with someone that has the professionalism to deal with their queries.', 'Branding . Web', 'dukes', 2012, 'black', 0),
+(10, 'New Mogen', 'Fun & Tasty', 'The reason we use white and clean background for Hunny B is to attract the audiences with the colorfulness of photos and images in the website. \r\n<br><br>\r\nThe color usage is designed to be brighter and more lively to attract audiences from lower age range.', 'Branding . Web', 'nm', 2010, 'black', 0),
+(11, 'JCI', 'Fun & Tasty', 'The reason we use white and clean background for Hunny B is to attract the audiences with the colorfulness of photos and images in the website. \r\n<br><br>\r\nThe color usage is designed to be brighter and more lively to attract audiences from lower age range.', 'Branding . Web', 'jci', 2010, 'black', 0),
+(12, 'Hunny B', 'Fun & Tasty', 'The reason we use white and clean background for Hunny B is to attract the audiences with the colorfulness of photos and images in the website. \r\n<br><br>\r\nThe color usage is designed to be brighter and more lively to attract audiences from lower age range.', 'Branding . Web', 'hunnyb', 2010, 'black', 0),
+(13, 'Ericsson', 'Fun & Tasty', 'The reason we use white and clean background for Hunny B is to attract the audiences with the colorfulness of photos and images in the website. \r\n<br><br>\r\nThe color usage is designed to be brighter and more lively to attract audiences from lower age range.', 'Branding . Web', 'ericsson', 2010, 'black', 0);
 
 -- --------------------------------------------------------
 
@@ -166,7 +169,7 @@ CREATE TABLE `slideshows` (
   `source` varchar(255) NOT NULL,
   `link` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `slideshows`
@@ -174,7 +177,9 @@ CREATE TABLE `slideshows` (
 
 INSERT INTO `slideshows` (`id`, `project`, `categories`, `source`, `link`) VALUES
 (1, 'Sentosa Villa', 'Photography. Website', 'sentosa-villa', 'google.com'),
-(2, 'D-Coat', 'Packaging. Website', 'd-coat', 'meh');
+(2, 'D-Coat', 'Packaging. Website', 'd-coat', 'meh'),
+(3, 'New Mogen', 'Logo . Website', 'nm', 'meh'),
+(4, 'Logo', '', 'logo', 'meh');
 
 -- --------------------------------------------------------
 
