@@ -1,1 +1,0 @@
-[13-Nov-2013 16:50:09 Asia/Kuala_Lumpur] PHP Fatal error:  Out of memory (allocated 1310720) (tried to allocate 30720 bytes) in /home/lxcommy/public_html/lx2new-white/CI_2.1.4/core/Output.php on line 486
