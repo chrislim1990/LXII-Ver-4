@@ -1,7 +1,7 @@
 <?php
 include_once('jcart/jcart.php');
-// session_destroy();
-session_start();
+session_destroy();
+// session_start();
 $current_item = $records[0];
 ?>
 

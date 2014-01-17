@@ -32,12 +32,14 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 
 	// discard "?" in the url
 	$breadcrumbs = explode("?",$_SERVER["REQUEST_URI"]);
+	$breadcrumbs = str_replace("/LXII-Ver-4/public_html", "", $breadcrumbs);
 	
 	// Spli the "/"
 	$breadcrumbs = explode("/",$breadcrumbs[0]);
 	
 	// Discard empty value in array
 	$breadcrumbs = array_filter($breadcrumbs);
+	print_r($breadcrumbs);
 
 	$breadcrumb = "";
 	foreach ($breadcrumbs as $key => $b) {
@@ -46,16 +48,33 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 			case 'order':
 			$friendly_text = 'products';
 			break;
-			
+
+			case 'public_html':
+			$friendly_text = 'Home';
+			break;
+
 			default:
 			$friendly_text = $b;
 			break;
-		}
+		};
 
 		if ($key != count($breadcrumbs)) {
-			$tmp_str = "<a href='/$b'>$friendly_text</a>";
+			if($b=="public_html"){
+				$b = "#1";
+			};
+			$tmp_str = "<a href='$b'>$friendly_text</a>";
 		}else{
-			$tmp_str = "<span>$friendly_text</span>";
+
+			//For products or portfolio
+			if($breadcrumbs[1]=="order" || $breadcrumbs[1]=="portfolio" && isset($breadcrumbs[2])){
+
+				$tmp_str = "<span>".$records[0]->title."</span>";
+			} 
+
+			//normal situation
+			else {
+				$tmp_str = "<span>$friendly_text</span>";
+			};
 		}
 		$breadcrumb .= "<li class='breadcrumbs'>".$tmp_str."</li>";
 	}
@@ -84,7 +103,7 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 						<li><a class="gn-icon gn-icon-portfolio" href="portfolio">Porfolio</a></li>
 						<li>
 							<a class="gn-icon gn-icon-product" href="order">Products</a>
-							<ul class="gn-submenu">
+							<ul class="gn-submenu">								
 								<li><a class="gn-icon gn-icon-graphic"  href="order?cat=print">Graphic</a></li>
 								<li><a class="gn-icon gn-icon-web"  href="order?cat=web">Web</a></li>
 								<li><a class="gn-icon gn-icon-camera"  href="order?cat=photo">Photography</a></li>
@@ -112,7 +131,3 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 			</div>
 		</li>
 	</ul>
-
-
-	
-	
