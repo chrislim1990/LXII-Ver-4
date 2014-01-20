@@ -64,20 +64,23 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 			};
 			$tmp_str = "<a href='$b'>$friendly_text</a>";
 		}else{
-
-			//For products or portfolio
-			if($breadcrumbs[1]=="order" || $breadcrumbs[1]=="portfolio" && isset($breadcrumbs[2])){
+			
+			if(isset($breadcrumbs[2]) && $breadcrumbs[1]=="order"){
 
 				$tmp_str = "<span>".$records[0]->title."</span>";
-			} 
 
-			//normal situation
-			else {
+			} else if(isset($breadcrumbs[2]) && $breadcrumbs[1]=="portfolio") {
+
+				$tmp_str = "<span>".$records[0]->title."</span>";
+
+			} else {
+
 				$tmp_str = "<span>$friendly_text</span>";
+
 			};
 		}
 		$breadcrumb .= "<li class='breadcrumbs'>".$tmp_str."</li>";
-	}
+	};
 
 	?>
 

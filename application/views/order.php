@@ -47,8 +47,11 @@
 
 <?php
 
-// $filter_cat = $_GET["cat"] ? $_GET["cat"] : "all";
-$filter_cat ="all";
+if(isset($_GET["cat"])){
+	$filter_cat = $_GET["cat"];
+} else {
+	$filter_cat = "all";
+};
 ?>
 
 <script src="js/jquery.mixitup.min.js"></script>
