@@ -96,8 +96,8 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 						<li>
 							<a class="gn-icon gn-icon-thumbs" href="about">About LXII</a>
 							<ul class="gn-submenu">
-								<li><a class="gn-icon gn-icon-thumbs">Our Mission</a></li>
-								<li><a class="gn-icon gn-icon-thumbs">Charity</a></li>
+								<li><a href="mission" class="gn-icon gn-icon-thumbs">Our Mission</a></li>
+								<!-- <li><a class="gn-icon gn-icon-thumbs">Charity</a></li> -->
 							</ul>
 						</li>
 						<li><a class="gn-icon gn-icon-portfolio" href="portfolio">Porfolio</a></li>
