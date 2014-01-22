@@ -34,10 +34,10 @@ $(document).ready(function() {
 
     // Do Search
     if (search_string == '') {
-      $("ul#results").fadeOut();
+      $("#results").fadeOut();
       $('h4#results-text').fadeOut();
     }else{
-      $("ul#results").fadeIn();
+      $("#results").fadeIn();
       $('h4#results-text').fadeIn();
       $(this).data('timer', setTimeout(search, 100));
     };

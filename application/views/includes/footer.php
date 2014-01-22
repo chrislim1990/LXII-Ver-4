@@ -70,6 +70,7 @@
 <?= links($config["js"],"js"); ?>
 
 <script>
+	$("#results").hide();
 	function imgError(image) {
 		image.onerror = "";
 		image.src = "img/brokenlink.jpg";

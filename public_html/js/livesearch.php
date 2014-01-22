@@ -35,7 +35,7 @@
 	$html = '';
 	$html .= '<li class="result">';
 	$html .= '<a target="_blank" href="urlString">';
-	$html .= '<strong>nameString</strong>';
+	$html .= '<b>nameString</b>';
 	$html .= '</a>';
 	$html .= '</li>';
 
@@ -46,7 +46,7 @@
 // Check Length More Than One Character
 	if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	// Build Query
-		$query = 'SELECT id,title,url,cat FROM portfolio WHERE title LIKE "%'.$search_string.'%" UNION SELECT id,title,url,cat FROM products WHERE title LIKE "%'.$search_string.'%" ORDER BY id';
+		$query = 'SELECT id,title,url,cat FROM portfolio WHERE title LIKE "%'.$search_string.'%" UNION SELECT id,title,url,cat FROM products WHERE title LIKE "%'.$search_string.'%" UNION SELECT id,title,url,cat FROM search WHERE title LIKE "%'.$search_string.'%" ORDER BY id';
 
 	// Do Search
 		$result = $tutorial_db->query($query);
@@ -59,12 +59,14 @@
 			foreach ($result_array as $result) {
 
 			// Format Output Strings And Hightlight Matches
-				$display_function = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['url']);
-				
+				$display_function = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['title']);
+
 				$display_name = preg_replace("/".$search_string."/i", "<b class='highlight'>".$search_string."</b>", $result['title']);
 
 				if($result['cat']=="graphic" || $result['cat']=="web" || $result['cat']=="print"){
 					$display_url = 'order/'.urlencode($result['id']);
+				} else if ($result['cat']=="menu"){
+					$display_url = urlencode($result['url']);
 				} else {
 					$display_url = 'portfolio/'.urlencode($result['url']);
 				};
