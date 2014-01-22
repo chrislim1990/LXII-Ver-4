@@ -1311,3 +1311,24 @@ hr {
   background-image: url("../img/ms3-on.jpg");
   background-position: center !important;
 }
+ul#results {
+  padding: 5px 30px;
+  position: absolute;
+  display: block;
+  left: 340px;
+  top: 60px;
+  z-index: 9999;
+  width: 360px;
+  text-align: left;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+ul#results li {
+  border-bottom: 1px solid #ddd;
+}
+ul#results li a:hover {
+  background-color: #ccc !important;
+}
+ul#results li:last-child {
+  border-bottom: none !important;
+}

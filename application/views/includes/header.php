@@ -1,7 +1,7 @@
 <?php 
 
 $config["css"] = array('bootstrap-responsive.min','bootstrap.min','jquery.cycle2','jquery.fancybox','superslides','font-awesome.min','component','gnmenu','styles');
-$config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jquery.scrollTo.min','vmouse.min','jquery.animate-enhanced.min','jquery.easing.1.3','map','rhinoslider-1.05.min','jquery.validate.min','classie','gnmenu.min');
+$config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jquery.scrollTo.min','vmouse.min','jquery.animate-enhanced.min','jquery.easing.1.3','map','rhinoslider-1.05.min','jquery.validate.min','classie','gnmenu.min','livesearch');
 
 ?>
 
@@ -88,7 +88,9 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 
 	<ul id="gn-menu" class="gn-menu-main">
 		<li class="gn-trigger">
+
 			<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+			<ul id="results"></ul>
 			<nav class="gn-menu-wrapper">
 				<div class="gn-scroller">
 					<ul class="gn-menu">
@@ -96,6 +98,8 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 							<input placeholder="Search" type="search" class="gn-search">
 							<a class="gn-icon gn-icon-search"><span>Search</span></a>
 						</li>
+
+
 						<li>
 							<a class="gn-icon gn-icon-thumbs" href="about">About LXII</a>
 							<ul class="gn-submenu">

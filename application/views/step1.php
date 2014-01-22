@@ -59,7 +59,7 @@ $current_item = $records[0];
 		<div class="iconholder">
 			<a class="icon" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flx2.com.my%2Fpublic_html%2Forder%2F<?=$current_item->id ?>" target="_blank"><i class="fa fa-facebook"></i></a> 
 			<a class="icon" href="https://twitter.com/share?text=%23LX2%20Have%20a%20look%20at" target="_blank"><i class="fa fa-twitter"></i></a> 
-			<a class="icon" href="http://www.tumblr.com/share/link?url=<?=urlencode("http://lx2.com.my/order/".$current_item->id)?>&name=<?=urlencode($current_item->title)?>&description=<?=urlencode($current_item->desc)?>" title="Share on Tumblr"><i class="fa fa-tumblr"></i></a> 
+			<a class="icon" href="http://www.tumblr.com/share/link?url=<?=urlencode("http://lx2.com.my/order/".$current_item->id)?>&name=<?=urlencode($current_item->title." for only MYR".$current_item->price)?>&description=<?=urlencode($current_item->desc)?>" title="Share on Tumblr"><i class="fa fa-tumblr"></i></a> 
 		</div>
 
 		<hr>
