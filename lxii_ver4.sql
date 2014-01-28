@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.0
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jan 11, 2014 at 09:40 AM
--- Server version: 5.5.25
--- PHP Version: 5.4.4
+-- Host: 127.0.0.1
+-- Generation Time: Jan 28, 2014 at 12:15 PM
+-- Server version: 5.6.14
+-- PHP Version: 5.5.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `forms`
 --
 
-CREATE TABLE `forms` (
+CREATE TABLE IF NOT EXISTS `forms` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` varchar(999) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `forms` (
 INSERT INTO `forms` (`id`, `title`, `content`) VALUES
 (0, 'Client', 'a:6:{i:0;a:3:{i:0;s:10:"Given Name";i:1;s:10:"given_name";i:2;s:4:"text";}i:1;a:3:{i:0;s:20:"Family Name/ Surname";i:1;s:8:"sur_name";i:2;s:4:"text";}i:2;a:3:{i:0;s:12:"Company Name";i:1;s:12:"company_name";i:2;s:4:"text";}i:3;a:4:{i:0;s:12:"Mobile Phone";i:1;s:6:"mobile";i:2;s:4:"text";i:3;s:94:"LXII Design Studio will use your mobile number if we need to contact you regarding your order.";}i:4;a:4:{i:0;s:13:"Email Address";i:1;s:5:"email";i:2;s:4:"text";i:3;s:4:"<hr>";}i:5;a:5:{i:0;s:87:"<p><b>Sign Me Up!</b> I would like to promotional material from LXII Design Studio!</p>";i:1;s:10:"newsletter";i:2;s:8:"checkbox";i:3;s:0:"";i:4;s:7:"checked";}}'),
 (4, 'General', 'a:1:{i:0;a:4:{i:0;s:12:"Overall Feel";i:1;s:4:"feel";i:2;s:4:"text";i:3;s:8:"Feeellll";}}'),
-(5, 'Logo', 'a:1:{i:0;a:4:{i:0;s:9:"Logo Type";i:1;s:9:"logo_type";i:2;s:4:"text";i:3;s:12:"Meh Meh Logo";}}'),
+(5, 'Logo', 's:1148:"array ( 0 => array ( 0 => ''Logo Type'', 1 => ''logo_type'', 2 => ''text'', 3 => ''Tell us what kind of logo you''d like to have. Is it a typography logo, or you are more interested in a mascot, or something else?'', ), 1 => array ( 0 => ''Logo Name'', 1 => ''logo_name'', 2 => ''text'', 3 => ''Please write the exact name as you would like to appear in your logo.'', ), 2 => array ( 0 => ''Taglines'', 1 => ''logo_tagline'', 2 => ''text'', 3 => ''What is your tagline if applicable. Do you want this in the logo?'', ), 3 => array ( 0 => ''Color Preference(s)'', 1 => ''logo_pref'', 2 => ''text'', 3 => ''Do you have any colour preferences or any existing colours you want in your logo?'', ), 4 => array ( 0 => ''Logo Attributes'', 1 => ''logo_attrib'', 2 => ''text'', 3 => ''What attributes of your business would you like your logo to reflect?'', ), 5 => array ( 0 => ''Message Delivery'', 1 => ''logo_message'', 2 => ''text'', 3 => ''What is the overall message you want to convey to your target audience?'', ), )"; '),
 (6, 'Website', 'a:1:{i:0;a:4:{i:0;s:21:"Website Functionality";i:1;s:21:"website_functionality";i:2;s:4:"text";i:3;s:14:"Functionalityy";}}');
 
 -- --------------------------------------------------------
@@ -49,12 +49,12 @@ INSERT INTO `forms` (`id`, `title`, `content`) VALUES
 -- Table structure for table `portfolio`
 --
 
-CREATE TABLE `portfolio` (
+CREATE TABLE IF NOT EXISTS `portfolio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `tagline` varchar(255) NOT NULL,
   `desc` text NOT NULL,
-  `category` varchar(255) NOT NULL,
+  `cat` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
   `year` int(11) NOT NULL DEFAULT '2000',
   `color` varchar(255) NOT NULL DEFAULT 'white',
@@ -66,7 +66,7 @@ CREATE TABLE `portfolio` (
 -- Dumping data for table `portfolio`
 --
 
-INSERT INTO `portfolio` (`id`, `title`, `tagline`, `desc`, `category`, `url`, `year`, `color`, `featured`) VALUES
+INSERT INTO `portfolio` (`id`, `title`, `tagline`, `desc`, `cat`, `url`, `year`, `color`, `featured`) VALUES
 (3, 'Icy Roll', 'Tasty & Fun', 'With its idea stems upon the feeling of happiness and joyfulness, we created a bright and refreshing look for Icy Roll. Audiences would surely love the colorful and refreshing sight of Icy Roll''s corporate items in hot summer.', 'Branding', 'icyroll', 2012, 'black', 0),
 (4, 'Sentosa Villa', 'Natural Retreat for Everyone', 'In the first sight, the website for Sentosa Villa would bestows the feeling of warm and elegance to its audiences. That is what the hotel owner wishes to deliver: to let the audiences feel as welcoming as possible. \r\n<br><br>\r\nWe used fonts and colors of classical feel to further enhance the elegant feeling a hotel or family resort should have. The contents is delivered in a clean and simple way to aids navigation as older family members were added into our consideration.', 'Branding . Web', 'sentosa', 2012, 'white', 1),
 (5, 'Hock Hean Hui', 'Professional Blues', 'Website for Hock Hean Hui aims at middle age workers and truck drivers, so it mostly emphasizes on the visibility of contents. Thus, we made the website as simple as possible, while also comes with adequate amount of design elements to make it looks modern and clean.', 'Web', 'hhh', 2010, 'black', 0),
@@ -84,7 +84,7 @@ INSERT INTO `portfolio` (`id`, `title`, `tagline`, `desc`, `category`, `url`, `y
 -- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL,
@@ -159,10 +159,36 @@ INSERT INTO `products` (`id`, `title`, `price`, `desc`, `hidden`, `featured`, `c
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `search`
+--
+
+CREATE TABLE IF NOT EXISTS `search` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `cat` varchar(255) NOT NULL DEFAULT 'menu',
+  `url` varchar(255) NOT NULL DEFAULT 'null',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `search`
+--
+
+INSERT INTO `search` (`id`, `title`, `cat`, `url`) VALUES
+(1, 'Home', 'menu', '#1'),
+(2, 'About LX2', 'menu', 'about'),
+(3, 'Portfolio', 'menu', 'portfolio'),
+(4, 'Our Mission', 'menu', 'mission'),
+(5, 'Products', 'menu', 'products'),
+(6, 'Contact', 'menu', 'contact');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `slideshows`
 --
 
-CREATE TABLE `slideshows` (
+CREATE TABLE IF NOT EXISTS `slideshows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `project` varchar(255) NOT NULL,
   `categories` varchar(255) NOT NULL,
@@ -187,7 +213,7 @@ INSERT INTO `slideshows` (`id`, `project`, `categories`, `source`, `link`) VALUE
 -- Table structure for table `testimonial`
 --
 
-CREATE TABLE `testimonial` (
+CREATE TABLE IF NOT EXISTS `testimonial` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `text` text NOT NULL,
