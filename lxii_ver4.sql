@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.0
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jan 11, 2014 at 09:40 AM
--- Server version: 5.5.25
--- PHP Version: 5.4.4
+-- Host: 127.0.0.1
+-- Generation Time: Jan 22, 2014 at 12:28 PM
+-- Server version: 5.6.14
+-- PHP Version: 5.5.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `forms`
 --
 
-CREATE TABLE `forms` (
+CREATE TABLE IF NOT EXISTS `forms` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` varchar(999) NOT NULL,
@@ -49,12 +49,12 @@ INSERT INTO `forms` (`id`, `title`, `content`) VALUES
 -- Table structure for table `portfolio`
 --
 
-CREATE TABLE `portfolio` (
+CREATE TABLE IF NOT EXISTS `portfolio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `tagline` varchar(255) NOT NULL,
   `desc` text NOT NULL,
-  `category` varchar(255) NOT NULL,
+  `cat` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
   `year` int(11) NOT NULL DEFAULT '2000',
   `color` varchar(255) NOT NULL DEFAULT 'white',
@@ -66,7 +66,7 @@ CREATE TABLE `portfolio` (
 -- Dumping data for table `portfolio`
 --
 
-INSERT INTO `portfolio` (`id`, `title`, `tagline`, `desc`, `category`, `url`, `year`, `color`, `featured`) VALUES
+INSERT INTO `portfolio` (`id`, `title`, `tagline`, `desc`, `cat`, `url`, `year`, `color`, `featured`) VALUES
 (3, 'Icy Roll', 'Tasty & Fun', 'With its idea stems upon the feeling of happiness and joyfulness, we created a bright and refreshing look for Icy Roll. Audiences would surely love the colorful and refreshing sight of Icy Roll''s corporate items in hot summer.', 'Branding', 'icyroll', 2012, 'black', 0),
 (4, 'Sentosa Villa', 'Natural Retreat for Everyone', 'In the first sight, the website for Sentosa Villa would bestows the feeling of warm and elegance to its audiences. That is what the hotel owner wishes to deliver: to let the audiences feel as welcoming as possible. \r\n<br><br>\r\nWe used fonts and colors of classical feel to further enhance the elegant feeling a hotel or family resort should have. The contents is delivered in a clean and simple way to aids navigation as older family members were added into our consideration.', 'Branding . Web', 'sentosa', 2012, 'white', 1),
 (5, 'Hock Hean Hui', 'Professional Blues', 'Website for Hock Hean Hui aims at middle age workers and truck drivers, so it mostly emphasizes on the visibility of contents. Thus, we made the website as simple as possible, while also comes with adequate amount of design elements to make it looks modern and clean.', 'Web', 'hhh', 2010, 'black', 0),
@@ -84,7 +84,7 @@ INSERT INTO `portfolio` (`id`, `title`, `tagline`, `desc`, `category`, `url`, `y
 -- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL,
@@ -159,10 +159,36 @@ INSERT INTO `products` (`id`, `title`, `price`, `desc`, `hidden`, `featured`, `c
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `search`
+--
+
+CREATE TABLE IF NOT EXISTS `search` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `cat` varchar(255) NOT NULL DEFAULT 'menu',
+  `url` varchar(255) NOT NULL DEFAULT 'null',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `search`
+--
+
+INSERT INTO `search` (`id`, `title`, `cat`, `url`) VALUES
+(1, 'Home', 'menu', '#1'),
+(2, 'About LX2', 'menu', 'about'),
+(3, 'Portfolio', 'menu', 'portfolio'),
+(4, 'Our Mission', 'menu', 'mission'),
+(5, 'Products', 'menu', 'products'),
+(6, 'Contact', 'menu', 'contact');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `slideshows`
 --
 
-CREATE TABLE `slideshows` (
+CREATE TABLE IF NOT EXISTS `slideshows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `project` varchar(255) NOT NULL,
   `categories` varchar(255) NOT NULL,
@@ -187,7 +213,7 @@ INSERT INTO `slideshows` (`id`, `project`, `categories`, `source`, `link`) VALUE
 -- Table structure for table `testimonial`
 --
 
-CREATE TABLE `testimonial` (
+CREATE TABLE IF NOT EXISTS `testimonial` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `text` text NOT NULL,

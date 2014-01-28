@@ -25,7 +25,7 @@
 			<a href='portfolio/$r->url'>
 				<span class='overlay'>
 					<div class='content'>
-						<h4>$r->title</h4><p>$r->category</p>
+						<h4>$r->title</h4><p>$r->cat</p>
 					</div>
 				</span>
 				<img src='$cover_img'>

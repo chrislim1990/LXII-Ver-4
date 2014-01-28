@@ -14,7 +14,7 @@ echo "<div class='header_banner hide-on-small'></div>";
 	<div class="col-md-8 col-md-offset-2">
 		<?php
 		echo "<h2>"	.$records[0]->title		."</h2>";
-		echo "<h3>"	.$records[0]->category	."</h3>";
+		echo "<h3>"	.$records[0]->cat	."</h3>";
 		echo "<div class='block'></div>";
 		echo "<p>"	.$records[0]->desc		."</p>";
 		?>

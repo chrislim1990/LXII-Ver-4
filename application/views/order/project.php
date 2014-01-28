@@ -10,6 +10,7 @@ include_once('jcart/jcart.php');
 // session_destroy();
 // session_start();
 
+$actualname = "";
 
 ?>
 <div class="container" id="checkout">
@@ -29,7 +30,8 @@ include_once('jcart/jcart.php');
 		$itemQtysInCart = (ShowPrivateItem('qtys'));
 
 		// Get total & remove the decimal
-		$itemSubtotalsInCart = explode('.',(ShowPrivateItem('subtotal')))[0];
+		$itemSubtotalsInCart = explode('.',(ShowPrivateItem('subtotal')));
+		$itemSubtotalsInCart = $itemSubtotalsInCart[0];
 
 
 		$neededFormsName = array();
@@ -86,8 +88,8 @@ include_once('jcart/jcart.php');
 
 			echo "<h2>Supporting Details</h2>";
 			
-
-			echo form_open("order/project/$next_count");
+			$attributes = array('id' => 'myform');
+			echo form_open("order/project/$next_count",$attributes);
 			echo form_hidden('title', $current_form->title);
 
 			echo "<div class='form_wrapper'>";
@@ -134,54 +136,113 @@ include_once('jcart/jcart.php');
 	</div>
 
 	<div class="col-md-4">
-			<h3>Order Summary</h3>
-			<div id="subtotal">
-				<div id="content">
-					<h4>Subtotal: MYR</h4>
-					<h2><?php echo $itemSubtotalsInCart; ?></h2>
-				</div>
-
+		<h3>Order Summary</h3>
+		<div id="subtotal">
+			<div id="content">
+				<h4>Subtotal: MYR</h4>
+				<h2><?php echo $itemSubtotalsInCart; ?></h2>
 			</div>
-			<hr>
-			<?php
-			echo "<h3>Shopping Cart</h3>";
-			echo "<dl id='shopping_cart'>";
-			for ($i=0; $i < count($itemIdsInCart); $i++) { 
-				$itemID = $itemIdsInCart[$i];
-				$itemName = $itemNamesInCart[$itemID];
-				$itemPrice = $itemPricesInCart[$itemID];
-				$itemQty = $itemQtysInCart[$itemID];
-				echo "<dt>$itemQty x <b>$itemName</b></dt><dd>MYR $itemPrice</dd>";
-			}
-			echo "</dl>";
 
-			function renderProjectSummary($array){
-				foreach ($array as $key => $value) {
-					if ($key != 'title' && $key != 'project_submit' && $value) {
-						$str .=  '<dt>'.$key.':</dt><dd>'.$value.'</dd>';
-					}
-				}
-				return $str;
+		</div>
+		<hr>
+		<?php
+		echo "<h3>Shopping Cart</h3>";
+		echo "<dl id='shopping_cart'>";
+		for ($i=0; $i < count($itemIdsInCart); $i++) { 
+			$itemID = $itemIdsInCart[$i];
+			$itemName = $itemNamesInCart[$itemID];
+			$itemPrice = $itemPricesInCart[$itemID];
+			$itemQty = $itemQtysInCart[$itemID];
+			echo "<dt>$itemQty x <b>$itemName</b></dt><dd>MYR $itemPrice</dd>";
+		}
+		echo "</dl>";
+
+		function renderProjectSummary($array){
+			foreach ($array as $key => $value) {
+				if ($key != 'title' && $key != 'project_submit' && $value) {
+					$str .=  '<dt>'.$key.':</dt><dd>'.$value.'</dd>';
+
+					if ($key == 'given_name'){
+						$actualname = $value;
+					} else if ($key == 'sur_name'){
+						$actualname .= "&nbsp;".$value;
+					};
+				};
 			}
 
-			// Project Summary
+			return $str;
+		};
 
-			if ($current_count-1>0) {
-				echo "<div id='project_summary'>";
-				echo "<h3>Project Summary</h3>";
-				for ($i=0; $i < $current_count-1; $i++) { 
-					$working_form = $_SESSION[$neededFormsName[$i].'_form'];
-					echo "<dl>";
-					echo "<dt><b>".$working_form['title']."</b></dt><dd>&nbsp;</dd>";
-					echo renderProjectSummary($working_form);
-					echo "</dl>";
-				}
-				echo "</div>";
+		function getName($array){
+			foreach ($array as $key => $value) {
+				if ($key == 'given_name'){
+					$actualname = $value;
+				} else if ($key == 'sur_name'){
+					$actualname .= "&nbsp;".$value;
+				};
+			};
+
+			return $actualname;
+		};
+
+
+		// Project Summary
+
+		if ($current_count-1>0) {
+			echo "<div id='project_summary'>";
+			echo "<h3>Project Summary</h3>";
+			for ($i=0; $i < $current_count-1; $i++) { 
+				$working_form = $_SESSION[$neededFormsName[$i].'_form'];
+				echo "<dl>";
+				echo "<dt><b>".$working_form['title']."</b></dt><dd>&nbsp;</dd>";
+				echo renderProjectSummary($working_form);
+				echo "</dl>";
 			}
-			?>
+			echo "</div>";
+
+			$working_form = $_SESSION[$neededFormsName[0].'_form'];
+			$_SESSION['actualname'] = getName($working_form);
+		}
+		?>
 	</div>
 
 </div>
 
 <div class="block b100"></div>
 <hr class="nomargin">
+
+
+<script type="text/javascript">
+	$().ready(function() {
+
+	// validate signup form on keyup and submit
+	$("#myform").validate({
+		rules: {
+			given_name: "required",
+			sur_name: "required",
+			mobile: {
+				required: true,
+				digits: true,
+				minlength: 6
+			},
+			email: {
+				required: true,
+				email: true,
+			},
+		},
+		messages: {
+			given_name: "Your name is required",
+			sur_name: "How should we address you?",
+			mobile: {
+				required: "Just in case we are interested in your voice",
+				digits: "Did I smell alphabets?",
+				minlength: "Please provide us your contact number along with your country's <a href='http://en.wikipedia.org/wiki/List_of_country_calling_codes' target='_blank'>dialing code</a>."
+			},
+			email: {
+				required: "We need this to get back to you",
+				email: "We need a valid email to get back to you",
+			},
+		}
+	});
+});
+</script>
