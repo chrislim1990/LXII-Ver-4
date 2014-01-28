@@ -22,6 +22,18 @@ class Order extends CI_Controller {
       $this->load->view("includes/template",$data);
    }
 
+   function success()
+   {
+      $data = array();
+
+      if ($q = $this->data_model->get_allproducts()) {
+         $data["records"] = $q;
+      };
+
+      $data["path"] = "success.php";
+      $this->load->view("includes/template",$data);
+   }
+
 
    function result()
    {

@@ -69,6 +69,7 @@ function PostIntoSession($array_name, $previous_submit_btn){
 		}
 	}
 }
+
 function AddIntoArray($value,$array){
 // Added into array if not exsist
 	if(!in_array($value, $array)){

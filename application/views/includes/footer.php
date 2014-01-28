@@ -70,11 +70,7 @@
 <?= links($config["js"],"js"); ?>
 
 <script>
-	function imgError(image) {
-		image.onerror = "";
-		image.src = "img/brokenlink.jpg";
-		return true;
-	};
+	$("#results").hide();
 
 	$(document).ready(function() {
 		$('#testi').rhinoslider({
@@ -100,43 +96,7 @@
 		});
 	});
 
-	<?php
-	if($this->uri->segment(1) == "order"){
-		echo "
-		$(document).ready(function() {
-			$('#slide2').hide();
-			$('#slide3').hide();
 
-			$('#control1').mouseup(function(){
-				$(this).addClass('current');
-				$('#control2').removeClass('current');
-				$('#control3').removeClass('current');
-				$('#slide1').show();
-				$('#slide2').hide();
-				$('#slide3').hide();
-			});
-
-$('#control2').mouseup(function(){
-	$(this).addClass('current');
-	$('#control1').removeClass('current');
-	$('#control3').removeClass('current');
-	$('#slide2').show();
-	$('#slide1').hide();
-	$('#slide3').hide();
-});
-
-$('#control3').mouseup(function(){
-	$(this).addClass('current');
-	$('#control1').removeClass('current');
-	$('#control2').removeClass('current');
-	$('#slide3').show();
-	$('#slide1').hide();
-	$('#slide2').hide();
-});
-});
-";
-} 
-?>
 // Push Menu
 $(document).ready(function() {
 	$(document.body).addClass('cbp-spmenu-push');

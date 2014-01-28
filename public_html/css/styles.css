@@ -98,6 +98,9 @@ textarea {
 label.error {
   margin-bottom: 20px;
   color: red;
+  width: 70% !important;
+  margin-left: 30%;
+  font-size: 12px;
 }
 .jumbotron {
   padding: 0;
@@ -172,6 +175,9 @@ label.error {
 }
 hr {
   border-color: #c6d0da;
+}
+hr.hr50 {
+  margin: 50px 0;
 }
 hr.formhr {
   width: 60%;
@@ -335,6 +341,11 @@ hr {
 }
 .block {
   height: 50px;
+  display: block;
+  clear: both;
+}
+.block.b25 {
+  height: 25px;
   display: block;
   clear: both;
 }
@@ -1240,4 +1251,116 @@ hr {
 }
 #SkypeButton_Dropdown_services_268_1_paraElement img {
   margin: 18px 40px 18px 30px !important;
+}
+.mission {
+  height: 600px;
+  border: 3px #fff solid;
+  display: block;
+  padding: 30% 20px 20px 20px;
+  color: #fff;
+  background-position: left;
+  background-size: auto 100% !important;
+  background-repeat: no-repeat;
+}
+.mission h3 {
+  z-index: 9999;
+}
+.mission .big-icon {
+  border: 2px #fff dotted;
+  border-radius: 120px;
+  height: 120px;
+  width: 120px;
+  display: inline-block;
+  line-height: 10em;
+}
+.mission .overlay {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-position: left;
+  background-size: auto 100% !important;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 500ms;
+  top: 0px;
+  left: 0px;
+}
+.mission .overlay:hover {
+  opacity: 1;
+}
+.mission#mission1 {
+  background: #555;
+  background-image: url("../img/ms1-off.jpg");
+}
+.mission#mission1 .overlay {
+  background-image: url("../img/ms1-on.jpg");
+}
+.mission#mission2 {
+  background: #444;
+  background-image: url("../img/ms2-off.jpg");
+  background-position: left !important;
+}
+.mission#mission2 .overlay {
+  background-image: url("../img/ms2-on.jpg");
+  background-position: left !important;
+}
+.mission#mission3 {
+  background: #444;
+  background-image: url("../img/ms3-off.jpg");
+  background-position: center !important;
+}
+.mission#mission3 .overlay {
+  background-image: url("../img/ms3-on.jpg");
+  background-position: center !important;
+}
+ul#results {
+  position: absolute;
+  display: block;
+  left: 340px;
+  top: 60px;
+  z-index: 9999;
+  width: 360px;
+  text-align: left;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+ul#results li {
+  widht: 100%;
+  padding: 5px 30px;
+  border-bottom: 1px solid #ddd;
+}
+ul#results li:hover {
+  background-color: #bbb !important;
+  color: #fff;
+}
+ul#results li a:hover {
+  background-color: transparent !important;
+}
+ul#results li:last-child {
+  border-bottom: none !important;
+}
+.checklist {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: left;
+  padding: 10px 0;
+}
+.checklist div {
+  padding: 0;
+}
+.checklist .price {
+  text-align: center;
+}
+.checklistsub {
+  padding: 10px;
+  text-align: left;
+}
+.checklistsub div {
+  padding: 0;
+}
+.checklistsub .price {
+  text-align: center;
 }

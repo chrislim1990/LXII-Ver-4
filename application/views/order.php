@@ -44,16 +44,21 @@
 <div class="block b100"></div>
 <hr class="nomargin">
 
-<script src="js/jquery.mixitup.min.js"></script>
 
 <?php
-$filter_cat = $_GET["cat"] ? $_GET["cat"] : "all";
+
+if(isset($_GET["cat"])){
+	$filter_cat = $_GET["cat"];
+} else {
+	$filter_cat = "all";
+};
 ?>
 
+<script src="js/jquery.mixitup.min.js"></script>
 <script>
 	$(function(){
 		$('#Grid').mixitup({
-			showOnLoad: "<?php echo $filter_cat; ?>",
+			showOnLoad: "<?php echo $filter_cat; ?>"
 		});
 	});
 </script>
