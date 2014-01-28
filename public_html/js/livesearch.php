@@ -13,7 +13,10 @@
 	$dbname = "lxii_ver4";
 	$dbuser = "root";
 	$dbpass = "root";
-
+	// $dbname = "lxcommy_lxii_ver4";
+	// $dbuser = "lxcommy_newadmin";
+	// $dbpass = "1q2w3e4r5t";
+	
 //	Connection
 	global $tutorial_db;
 

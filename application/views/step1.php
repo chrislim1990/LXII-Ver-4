@@ -1,7 +1,7 @@
 <?php
 include_once('jcart/jcart.php');
-session_destroy();
-// session_start();
+// session_destroy();
+session_start();
 $current_item = $records[0];
 ?>
 
@@ -33,7 +33,14 @@ $current_item = $records[0];
 				<?php
 
 				$contains_side = strpos($current_item->price,"/");
-				$product_price = $contains_side !== false ? explode("/", $current_item->price)[0] : $current_item->price;
+
+				if($contains_side !== false){
+					$product_price = explode("/", $current_item->price);
+					$product_price = $product_price[0];
+					print_r($product_price);
+				} else {
+					$product_price = $current_item->price;
+				};
 
 				$hidden_data = array(
 					'jcartToken' => $_SESSION['jcartToken'],
@@ -114,6 +121,6 @@ $current_item = $records[0];
 <hr class="nomargin">
 
 <script>
-$("#gn-menu").append("<li id='view_cart'><i class='fa fa-shopping-cart'></i> Your Cart <span id='cart_count'>0</span></li>");
+	$("#gn-menu").append("<li id='view_cart'><i class='fa fa-shopping-cart'></i> Your Cart <span id='cart_count'>0</span></li>");
 </script>
 <script src="http://platform.tumblr.com/v1/share.js"></script>

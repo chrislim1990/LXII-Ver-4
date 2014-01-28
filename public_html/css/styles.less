@@ -103,6 +103,9 @@ textarea {
 label.error {
   margin-bottom: 20px;
   color: red;
+  width: 70% !important;
+  margin-left: 30%;
+  font-size: 12px;
 }
 .jumbotron {
   padding: 0;
@@ -1344,7 +1347,6 @@ form{
   }
 }
 ul#results {
-  padding: 5px 30px;
   position: absolute;
   display: block;
   left: 340px;
@@ -1356,14 +1358,50 @@ ul#results {
   border-bottom: 1px solid #ddd;
 
   li {
+    widht: 100%;
+  padding: 5px 30px;
     border-bottom: 1px solid #ddd;
 
+    &:hover {
+      background-color: #bbb !important;
+      color: #fff;
+    }
+
     a:hover {
-      background-color: #ccc !important;
+      background-color: transparent !important;
     }
   }
 
   li:last-child{
     border-bottom: none !important;
+  }
+}
+
+.checklist {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: left;
+  padding: 10px 0;
+
+  div {
+    padding: 0;
+  }
+
+  .price {
+    text-align: center;
+  }
+}
+.checklistsub {
+  padding: 10px;
+  text-align: left;
+
+  div {
+    padding: 0;
+  }
+
+  .price {
+    text-align: center;
   }
 }

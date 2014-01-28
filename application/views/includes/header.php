@@ -18,7 +18,7 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 	<meta name="author" content="LXII Design Studio" />
 	<!-- <base href="http://localhost:8888/"> -->
 	<base href="http://github.localhost/LXII-Ver-4/public_html/">
-	<!-- <base href="http://www.lx2.com.my/lx2Web-Ver3/public_html/"> -->
+	<!-- <base href="http://draft.lx2.com.my/lxii_ver4/public_html/"> -->
 
 	<?= links($config["css"],"css"); ?>
 	<script language="javascript" type="text/javascript" src="js/jquery.min.js"></script>
@@ -33,13 +33,14 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 	// discard "?" in the url
 	$breadcrumbs = explode("?",$_SERVER["REQUEST_URI"]);
 	$breadcrumbs = str_replace("/LXII-Ver-4/public_html", "", $breadcrumbs);
+	// $breadcrumbs = str_replace("/lxii_ver4/public_html", "", $breadcrumbs);
+	
 	
 	// Spli the "/"
 	$breadcrumbs = explode("/",$breadcrumbs[0]);
 	
 	// Discard empty value in array
 	$breadcrumbs = array_filter($breadcrumbs);
-	print_r($breadcrumbs);
 
 	$breadcrumb = "";
 	foreach ($breadcrumbs as $key => $b) {
