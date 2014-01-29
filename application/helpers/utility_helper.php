@@ -33,14 +33,45 @@ function GenerateForm($form_array)
 		echo "<label for='$fi[1]'>$fi[0]</label>";
 
 		switch ($fi[2]) {
+
+			// If Checkbox
 			case 'checkbox':
 			echo "<input type='checkbox' name='$fi[1]' id='$fi[1]' value='$fi[1]' checked='$fi[4]' />";
 			break;
 
+			//If Select
 			case 'select':
-			echo $fi[4];
+			echo "<select name='$fi[1]'>";
+			$gah = array();
+			$gah = explode(",",$fi[4]);
+			foreach ($gah as $g) {
+				echo "<option value='".strtolower(str_replace(' ', '_', $g))."'>".$g."</option>";
+			};
+			echo "</select>";
 			break;
 
+			//If Radio
+			case 'checkbox2':
+			echo "<div class='row radioholder'>";
+			$geh = explode(",",$fi[4]);
+			$i = 0;
+			foreach ($geh as $g) {
+				$i ++;
+				echo "<div class='col-md-3 radios'>";
+				echo "<img src='img/logo-type-$i.jpg'>";
+				echo "<input type='checkbox' name='$fi[1][]' id='$fi[1]' value='".strtolower(str_replace(' ', '_', $g))."'>".$g."</input>";
+				echo "</div>";
+			};
+			echo "</div>";
+			break;
+
+			//If Textarea
+			case 'textarea':
+			echo "<textarea name='$fi[1]' id='$fi[1]'/>";
+			echo "</textarea>";
+			break;
+
+			//Def
 			default:
 			echo "<input type='$fi[2]' id='$fi[1]' name='$fi[1]' value=''>";
 			break;
@@ -85,14 +116,14 @@ function VarDump($array){
 }
 
 function toWebSafe($str, $replace=array(), $delimiter='-') {
- if( !empty($replace) ) {
-  $str = str_replace((array)$replace, ' ', $str);
- }
+	if( !empty($replace) ) {
+		$str = str_replace((array)$replace, ' ', $str);
+	}
 
- $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
- $clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
- $clean = strtolower(trim($clean, '-'));
- $clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+	$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+	$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+	$clean = strtolower(trim($clean, '-'));
+	$clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
 
- return $clean;
+	return $clean;
 }
