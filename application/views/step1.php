@@ -5,8 +5,6 @@ session_start();
 $current_item = $records[0];
 ?>
 
-
-
 <div class="container product" >
 
 	<!-- Push Menu -->
@@ -15,9 +13,7 @@ $current_item = $records[0];
 		<div id="jcart"><?php $jcart->display_cart();?></div>
 	</nav>
 
-
 	<div class="row steps">
-
 		<!-- Product Photo -->
 		<div id="product_photo" class="col-md-6 hide-on-small ">
 			<img src="img/products/<?=$current_item->url?>.jpg" onerror='imgError(this);'>
@@ -37,25 +33,52 @@ $current_item = $records[0];
 				if($contains_side !== false){
 					$product_price = explode("/", $current_item->price);
 					$product_price = $product_price[0];
-					print_r($product_price);
 				} else {
 					$product_price = $current_item->price;
 				};
-
+				
 				$hidden_data = array(
 					'jcartToken' => $_SESSION['jcartToken'],
-					'my-item-id' => $current_item->id,
+					'my-item-id' => ShowPrivateItem('itemCount')+1,
 					'my-item-url' => "img/products/".$current_item->url.".jpg",
 					'my-item-name' => $current_item->title,
 					'my-item-price' => $product_price,
-					'my-item-qty' => '1'
+					'my-item-qty' => 1
 					);
 
 				echo '<form method="post" action="" class="jcart">';
 				echo form_hidden($hidden_data);
-				
-				echo form_checkbox('exp', '', False);
-				echo form_label('Become Expensive ', 'exp');
+				// Additional Details
+
+				switch ($hidden_data['my-item-name']) {
+					case 'Business Card':
+					echo form_label('Additional (100/pax) ', 'add_pax');
+					echo '<input type="text" id="add_pax" name="my-item-extra" value="1" size="3" autocomplete="off">';
+					break;
+					
+					case 'Booklet':
+					echo form_label('Pages ', 'pages');
+					echo '<input type="text" id="pages" name="my-item-extra" value="1" size="3" autocomplete="off">';
+					break;
+
+					case 'Website':
+					echo form_label('Unique Pages ', 'pages');
+					echo '<input type="text" id="pages" name="my-item-extra" value="1" size="3" autocomplete="off">';
+					echo "<p class='help'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>";
+					echo form_label('CMS ', 'pages');
+					echo '<input type="checkbox" name="vehicle" value="Bike">MYR 1200<br>';
+					echo form_label('Mobile Version ', 'pages');
+					echo '<input type="checkbox" name="vehicle" value="Bike">MYR 500<br>';
+					echo form_label('Shopping Cart ', 'pages');
+					echo '<input type="checkbox" name="vehicle" value="Bike">MYR 2500<br>';
+					echo form_label('Coding ', 'pages');
+					echo '<input type="checkbox" name="vehicle" value="Bike" checked >MYR 2500<br>';
+					break;
+
+					default:
+						# code...
+					break;
+				}
 
 				?> 
 				<input id="product_place_order" type="submit" name="my-add-button" value="Place Order" class="learn_more invert place_order">
@@ -120,7 +143,59 @@ $current_item = $records[0];
 <div class="block b100"></div>
 <hr class="nomargin">
 
-<script>
-	$("#gn-menu").append("<li id='view_cart'><i class='fa fa-shopping-cart'></i> Your Cart <span id='cart_count'>0</span></li>");
-</script>
+<?php
+// VarDump($_SESSION);
+?>
 <script src="http://platform.tumblr.com/v1/share.js"></script>
+<script>
+	
+	$("#gn-menu").append("<li id='view_cart'><i class='fa fa-shopping-cart'></i> Your Cart <span id='cart_count'>0</span></li>");
+
+// Push Menu
+$(document).ready(function() {
+	$(document.body).addClass('cbp-spmenu-push');
+	$('#cart_count').text($('#total_item').text());
+});
+
+var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+body = document.body;
+
+$('#product_place_order,#view_cart,#cbp-overlay').click(function(){
+
+	$('#cbp-overlay').toggle();
+	classie.toggle( this, 'active' );
+	classie.toggle( body, 'cbp-spmenu-push-toleft' );
+	classie.toggle( menuRight, 'cbp-spmenu-open' );
+
+	// Cart Count
+	var total_item_in_cart = parseInt($('#total_item').text());
+	if(this.id=="product_place_order" ){total_item_in_cart += 1; };
+	$('#cart_count').text(total_item_in_cart);
+	$('[name=my-item-id]').val(total_item_in_cart);
+
+});
+	// Extra Information
+	$("#add_pax,#pages")
+	.change(function () {
+		default_price = parseInt('<?php echo $product_price; ?>');
+		
+		switch ($(this).attr('id')) { 
+			case 'add_pax': 
+			additional_charge = 100;
+			price = ($(this).val()*additional_charge)+default_price;
+			break;
+			case 'pages':
+			if ($(this).val()<= 10) {
+				price = $(this).val()*default_price;				
+			}else{
+				price = $(this).val()*default_price*0.8;				
+			}; 
+			break;
+		}
+		
+		$('[name=my-item-price]').val(price);
+		// alert(price);
+	})
+	.change();
+
+</script>

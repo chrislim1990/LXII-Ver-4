@@ -786,6 +786,15 @@ hr {
   margin-top: 90px;
   padding-bottom: 100px;
 }
+.product .steps form label {
+  width: 50%;
+}
+.product .steps form input[type="text"],
+.product .steps form textarea {
+  width: 50%;
+  background-color: #fff;
+  border: 1px solid #c6d0da;
+}
 .product .product_info {
   margin-top: 30px;
 }
@@ -804,6 +813,17 @@ hr {
 .product .product-desc {
   margin-bottom: 20px;
 }
+.product .price_rate {
+  width: 100%;
+  margin-bottom: 19px;
+  background-color: #fff;
+}
+.product .price_rate td,
+.product .price_rate th {
+  border: 1px solid #c6d0da;
+  width: 50%;
+  padding: 10px;
+}
 .product .well {
   border-radius: 0;
   box-shadow: none;
@@ -813,6 +833,14 @@ hr {
   text-align: center;
   margin: 0;
   font-size: 13px;
+}
+.product .well p.help {
+  width: 50%;
+  float: right;
+  text-align: left;
+  margin-left: 50%;
+  margin-bottom: 20px;
+  line-height: 20px;
 }
 .product .place_order {
   margin: 5px 0;
@@ -904,7 +932,6 @@ hr {
 .cbp-spmenu #jcart .cart_item {
   background-color: #FFF;
   border-top: 1px solid #c6d0da;
-  border-bottom: 1px solid #c6d0da;
   padding: 20px;
   position: relative;
   overflow: auto;
@@ -923,10 +950,24 @@ hr {
   width: 40px;
   text-align: center;
 }
+.cbp-spmenu #jcart .cart_item .name {
+  font-size: 18px;
+  margin: 14px 0 0 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.cbp-spmenu #jcart .cart_item .extra {
+  font-size: 13px;
+  line-height: 20px;
+}
+.cbp-spmenu #jcart .cart_item .price {
+  font-size: 16px;
+  margin-top: 10px;
+}
 .cbp-spmenu #jcart .cart_item #cart_img {
   float: left;
   width: 40%;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .cbp-spmenu #jcart .cart_item h3 {
   margin: 0;
@@ -1070,7 +1111,6 @@ hr {
 #gn-menu a {
   border-bottom: none;
 }
-#gn-menu input.gn-search,
 #gn-menu ul,
 #gn-menu a {
   color: #000000;

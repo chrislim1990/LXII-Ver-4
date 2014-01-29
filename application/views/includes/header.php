@@ -16,8 +16,8 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 	<meta name="description" content="A Design Firm" />
 	<meta name="keywords" content="design firm" />
 	<meta name="author" content="LXII Design Studio" />
-	<!-- <base href="http://localhost:8888/"> -->
-	<base href="http://github.localhost/LXII-Ver-4/public_html/">
+	<base href="http://localhost:8888/">
+	<!-- <base href="http://github.localhost/LXII-Ver-4/public_html/"> -->
 	<!-- <base href="http://draft.lx2.com.my/lxii_ver4/public_html/"> -->
 
 	<?= links($config["css"],"css"); ?>

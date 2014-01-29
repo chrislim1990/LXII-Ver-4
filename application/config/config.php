@@ -14,8 +14,8 @@
 | path to your installation.
 |
 */
-// $config['base_url']	= 'http://localhost:8888/';
-$config['base_url']	= 'http://github.localhost/LXII-Ver-4/public_html/';
+$config['base_url']	= 'http://localhost:8888/';
+// $config['base_url']	= 'http://github.localhost/LXII-Ver-4/public_html/';
 // $config['base_url']	= 'http://draft.lx2.com.my/lxii_ver4/public_html/';
 
 /*

@@ -17,6 +17,7 @@ class Jcart {
 	private $prices    = array();
 	private $qtys      = array();
 	private $urls      = array();
+	private $extras    = array();
 	private $subtotal  = 0;
 	private $itemCount = 0;
 
@@ -41,6 +42,7 @@ class Jcart {
 			$item['price']    = $this->prices[$tmpItem];
 			$item['qty']      = $this->qtys[$tmpItem];
 			$item['url']      = $this->urls[$tmpItem];
+			$item['extra']      = $this->extras[$tmpItem];
 			$item['subtotal'] = $item['price'] * $item['qty'];
 			$items[]          = $item;
 		}
@@ -58,7 +60,7 @@ class Jcart {
 	*
 	* @return mixed
 	*/
-	private function add_item($id, $name, $price, $qty = 1, $url) {
+	private function add_item($id, $name, $price, $qty = 1, $url, $extra) {
 
 		$validPrice = false;
 		$validQty = false;
@@ -92,6 +94,7 @@ class Jcart {
 				$this->prices[$id] = $price;
 				$this->qtys[$id]   = $qty;
 				$this->urls[$id]   = $url;
+				$this->extras[$id]   = $extra;
 			}
 			$this->update_subtotal();
 			return true;
@@ -165,6 +168,7 @@ class Jcart {
 		unset($this->prices[$id]);
 		unset($this->qtys[$id]);
 		unset($this->urls[$id]);
+		unset($this->extras[$id]);
 
 		// Rebuild the items array, excluding the id we just removed
 		foreach($this->items as $item) {
@@ -185,6 +189,7 @@ class Jcart {
 		$this->prices    = array();
 		$this->qtys      = array();
 		$this->urls      = array();
+		$this->extras      = array();
 		$this->subtotal  = 0;
 		$this->itemCount = 0;
 	}
@@ -277,6 +282,7 @@ class Jcart {
 		$price = $config['item']['price'];
 		$qty   = $config['item']['qty'];
 		$url   = $config['item']['url'];
+		$extra   = $config['item']['extra'];
 		$add   = $config['item']['add'];
 
 		// Use config values as literal indices for incoming POST values
@@ -286,6 +292,7 @@ class Jcart {
 		$price = $_POST[$price];
 		$qty   = $_POST[$qty];
 		$url   = $_POST[$url];
+		$extra   = $_POST[$extra];
 
 		// Optional CSRF protection, see: http://conceptlogic.com/jcart/security.php
 		$jcartToken = $_POST['jcartToken'];
@@ -303,7 +310,8 @@ class Jcart {
 		$id    = filter_var($id, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
 		$name  = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
 		$url   = filter_var($url, FILTER_SANITIZE_URL);
-
+$extra    = filter_var($extra, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
+		
 		// Round the quantity if necessary
 		if($config['decimalPlaces'] === true) {
 			$qty = round($qty, $config['decimalPlaces']);
@@ -311,7 +319,7 @@ class Jcart {
 
 		// Add an item
 		if ($_POST[$add]) {
-			$itemAdded = $this->add_item($id, $name, $price, $qty, $url);
+			$itemAdded = $this->add_item($id, $name, $price, $qty, $url, $extra);
 			// If not true the add item function returns the error type
 			if ($itemAdded !== true) {
 				$errorType = $itemAdded;
@@ -511,8 +519,20 @@ if($this->itemCount > 0) {
 		$item_name = $item['name'];
 		$item_price = number_format($item['price'], $priceFormat['decimals'], $priceFormat['dec_point'], $priceFormat['thousands_sep']);
 
-		// Testing Purpose
-		// var_dump($item);
+switch ($item_name) {
+	case 'Business Card':
+		$extra_html = "Additional (100/pax) {$item['extra']}";
+		break;
+
+		case 'Booklet':
+		$extra_html = "With {$item['extra']} pages";
+		break;
+	
+	default:
+		$extra_html ="";
+		break;
+}
+	
 		
 $item_html=<<<EOT
 <div class="cart_item">
@@ -520,10 +540,9 @@ $item_html=<<<EOT
 <input name='jcartItemId[]' type='hidden' value='{$item['id']}' />\n
 <input name='jcartItemName[]' type='hidden' value='{$item['name']}' />\n
 <input name='jcartItemPrice[]' type='hidden' value='{$item['price']}' />\n
-<h3>$item_name</h3>
-<p>MYR $item_price</p> 
-<label for="jcartItemQty[]">Quantity : </label>
-<input id='jcartItemQty-{$item['id']}' name='jcartItemQty[]' type='text' value='{$item['qty']}' />
+<h4 class="name">$item_name</h4>
+<p class="extra">$extra_html</p>
+<h3 class="price">MYR $item_price</h3> 
 <a class='jcart-remove' href='?jcartRemove={$item['id']}'>&times;</a>\n
 </div>
 EOT;

@@ -22,6 +22,7 @@ $config['item']['name']           = 'my-item-name';    // Item name
 $config['item']['price']          = 'my-item-price';    // Item price
 $config['item']['qty']            = 'my-item-qty';    // Item quantity
 $config['item']['url']            = 'my-item-url';    // Item URL (optional)
+$config['item']['extra']          = 'my-item-extra';    // Item Extra (optional)
 $config['item']['add']            = 'my-add-button';    // Add to cart button
 
 // Your PayPal secure merchant ID

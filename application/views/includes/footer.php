@@ -96,54 +96,9 @@
 		});
 	});
 
-
-// Push Menu
-$(document).ready(function() {
-	$(document.body).addClass('cbp-spmenu-push');
-	$('#cart_count').text($('#total_item').text());
-});
-
-
-var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-body = document.body;
-
-$('#product_place_order,#view_cart,#cbp-overlay').click(function(){
-
-	$('#cbp-overlay').toggle();
-	classie.toggle( this, 'active' );
-	classie.toggle( body, 'cbp-spmenu-push-toleft' );
-	classie.toggle( menuRight, 'cbp-spmenu-open' );
-
-	// Cart Count
-	var total_item_in_cart = parseInt($('#total_item').text());
-	if(this.id=="product_place_order" ){total_item_in_cart += 1; };
-	$('#cart_count').text(total_item_in_cart);
-
-});
-
-// JCart
-</script>
-<script>
-	$('[name=exp]').click(function(){
-		if($(this).is(':checked')){
-			price = '10000';
-			itemId = 99;
-			newname = 'Damn Exp Logo';
-		} else {
-			price = '399';
-			itemId = 1;
-			newname = 'Normal Logo';
-		}
-		$('#product-price').text(price);
-		$('[name=my-item-price]').val(price);
-		$('[name=my-item-id]').val(itemId);
-		$('[name=my-item-name]').val(newname);
-	});
-
 </script>
 
 <script type="text/javascript" src="jcart/js/jcart.min.js"></script>
-
 <script>
 	new gnMenu( document.getElementById( 'gn-menu' ) );
 </script>

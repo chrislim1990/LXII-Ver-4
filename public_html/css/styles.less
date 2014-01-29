@@ -796,46 +796,73 @@ hr {
   .steps{
     margin-top: 90px;
     padding-bottom: 100px;
-    // text-align: center;
+    form{
+      label{
+        width: 50%;
+      }
+      input[type="text"], textarea{
+       width: 50%;
+       background-color: #fff;
+       border:1px solid @light-grey;
+     }
+   }
+ }
+ .product_info{
+  margin-top: 30px;
+}
+.title{
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  font-weight: bolder;
+  display: inline-block;
+  margin-right: 15px;
+}
+.price{
+  margin-bottom: 30px;
+  display: inline-block;
+}
+.product-desc{
+  margin-bottom: 20px;
+}
+.price_rate{
+  width: 100%;
+  margin-bottom: 19px;
+  background-color: #fff;
+  td,th{
+    border: 1px solid @light-grey;
+    width: 50%;
+    padding: 10px;
   }
-  .product_info{
-    margin-top: 30px;
-  }
-  .title{
-    text-transform: uppercase;
-    letter-spacing: 3px;
+}
+.well{
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  p{
+    text-align: center;
     margin: 0;
-    font-weight: bolder;
-    display: inline-block;
-    margin-right: 15px;
-  }
-  .price{
-    margin-bottom: 30px;
-    display: inline-block;
-  }
-  .product-desc{
-    margin-bottom: 20px;
-  }
-  .well{
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-    p{
-      text-align: center;
-      margin: 0;
-      font-size: 13px;
+    font-size: 13px;
+    &.help{
+      width: 50%;
+      float: right;
+      text-align: left;
+      margin-left: 50%;
+      margin-bottom: 20px;
+      line-height: 20px;
     }
   }
-  .place_order{
-   margin: 5px 0;
-   text-align: center;
-   max-width: none;
-   width: 100%;
-   display: block;
-   font-size: 16px;
-   padding: 15px 5px;
- }
- .icon{
+}
+.place_order{
+ margin: 5px 0;
+ text-align: center;
+ max-width: none;
+ width: 100%;
+ display: block;
+ font-size: 16px;
+ padding: 15px 5px;
+}
+.icon{
   margin-top: 0;
 }
 b{
@@ -901,6 +928,7 @@ b{
     border: none;
   }
   #jcart{
+
     .cart_subtotal{
       padding: 20px;
       overflow: auto;
@@ -916,7 +944,6 @@ b{
     .cart_item{
       background-color: #FFF;
       border-top: 1px solid @light-grey;
-      border-bottom: 1px solid @light-grey;
       padding: 20px;
       position: relative;
       overflow: auto;
@@ -934,29 +961,43 @@ b{
        width: 40px;
        text-align: center;
      }
-     #cart_img{
-       float: left;
-       width: 40%;
-       margin-right: 10px;
-     }
-     h3{
-      margin: 0;
+     .name{
+      font-size: 18px;
+      margin: 14px 0 0 0;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
-    .jcart-remove{
-      border: none;
-      padding: 20px 15px;
-      display: block;
-      position: absolute;
-      line-height: 0;
-      right: 0;
-      top: 0;
-      &:hover{
-        background-color: #000;
-        color: #fff;
-        text-decoration: none;
-      }
-    }
+    .extra{
+     font-size: 13px;
+     line-height: 20px;
+   }
+   .price{
+    font-size: 16px;
+    margin-top: 10px;
   }
+  #cart_img{
+   float: left;
+   width: 40%;
+   margin-right: 20px;
+ }
+ h3{
+  margin: 0;
+}
+.jcart-remove{
+  border: none;
+  padding: 20px 15px;
+  display: block;
+  position: absolute;
+  line-height: 0;
+  right: 0;
+  top: 0;
+  &:hover{
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+}
 }
 }
 
@@ -1088,7 +1129,7 @@ form{
   a{
     border-bottom:none;
   }
-  input.gn-search, ul, a{
+  ul, a{
     color: @grey;
   }
   a:hover, li.gn-search-item:hover, li.gn-search-item:hover a{
@@ -1359,7 +1400,7 @@ ul#results {
 
   li {
     widht: 100%;
-  padding: 5px 30px;
+    padding: 5px 30px;
     border-bottom: 1px solid #ddd;
 
     &:hover {

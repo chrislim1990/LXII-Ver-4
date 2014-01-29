@@ -1,6 +1,6 @@
 <style type='text/css'>
-/*	.header_banner {background-image:url('img/home-slideshows/d-coat.jpg');height: 400px;}*/
-	.header_banner {background-color:#ededed;height: 400px;}
+		.header_banner {background-image:url('img/products_banner/header.jpg');height: 400px;}
+	/*.header_banner {background-color:#ededed;height: 400px;}*/
 </style>
 
 <div class="header_banner"></div>
@@ -11,7 +11,7 @@
 		<li class="filter" data-filter="all">All</li>
 		<li class="filter" data-filter="web">Web</li>
 		<li class="filter" data-filter="print">Print</li>
-		<li class="filter" data-filter="branding">Brading</li>
+		<li class="filter" data-filter="branding">Branding</li>
 	</ul>
 
 
@@ -20,8 +20,11 @@
 		<?php 
 		foreach ($records as $r) {
 
-	// $cover_img = current(glob("img/products/$r->url.jpg"));
-			$cover_img = current(glob("img/brokenlink.jpg"));
+			$cover_img = current(glob("img/products/$r->url.jpg"));
+			if (!$cover_img) {
+				$cover_img = current(glob("img/brokenlink.jpg"));
+			}
+			// $cover_img = current(glob("img/brokenlink.jpg"));
 			if ($cover_img && $r->hidden!=1) {
 
 				$badge = $r->featured==1 ? "<span class='badge'>Featured</span>" : "";
