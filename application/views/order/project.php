@@ -73,7 +73,7 @@ $actualname = "";
 					$active_forms [] = $r;
 				}
 			}
-		}
+		};
 
 		// To store array in database we need serialize it before we save it. Online serialize link http://goo.gl/BaP6U
 		$total_forms = count($active_forms);
@@ -85,7 +85,6 @@ $actualname = "";
 			$current_form = $active_forms[$current_count-1];
 
 			$project_inputs= unserialize($current_form->content);
-
 			echo "<h2>Supporting Details</h2>";
 			
 			$attributes = array('id' => 'myform');
@@ -108,7 +107,6 @@ $actualname = "";
 
 			$summary_forms = array();
 			foreach ($active_forms as $a) { $summary_forms[] = $a->title; }
-			
 			foreach ($summary_forms as $a) {
 				$summary_forms_name = $a!='client'? $a.'_form' : $a ;
 
@@ -147,20 +145,31 @@ $actualname = "";
 		<hr>
 		<?php
 		echo "<h3>Shopping Cart</h3>";
-		echo "<dl id='shopping_cart'>";
+		echo "<dl id='shopping_cart'><hr>";
 		for ($i=0; $i < count($itemIdsInCart); $i++) { 
 			$itemID = $itemIdsInCart[$i];
 			$itemName = $itemNamesInCart[$itemID];
 			$itemPrice = $itemPricesInCart[$itemID];
 			$itemQty = $itemQtysInCart[$itemID];
-			echo "<dt>$itemQty x <b>$itemName</b></dt><dd>MYR $itemPrice</dd>";
+			echo "<dt>$itemQty x <b>$itemName</b></dt><dd>MYR $itemPrice</dd><hr>";
 		}
 		echo "</dl>";
 
 		function renderProjectSummary($array){
 			foreach ($array as $key => $value) {
 				if ($key != 'title' && $key != 'project_submit' && $value) {
-					$str .=  '<dt>'.$key.':</dt><dd>'.$value.'</dd>';
+					if($key == 'logo_type'){
+
+						$key = str_replace('_',' ',$key);
+						$key = ucwords(strtolower($key));
+						$gah = implode(', ', $value);
+						$str .=  '<dt><span>'.$key.':</span></dt><dd><span>'.$gah.'</span></dd><hr>';
+					} else {
+
+						$key = str_replace('_',' ',$key);
+						$key = ucwords(strtolower($key));
+						$str .=  '<dt><span>'.$key.':</span></dt><dd><span>'.$value.'</span></dd><hr>';
+					};
 
 					if ($key == 'given_name'){
 						$actualname = $value;
@@ -194,7 +203,7 @@ $actualname = "";
 			for ($i=0; $i < $current_count-1; $i++) { 
 				$working_form = $_SESSION[$neededFormsName[$i].'_form'];
 				echo "<dl>";
-				echo "<dt><b>".$working_form['title']."</b></dt><dd>&nbsp;</dd>";
+				echo "<dt><b>".$working_form['title']."</b></dt><dd>&nbsp;</dd><hr>";
 				echo renderProjectSummary($working_form);
 				echo "</dl>";
 			}
@@ -218,6 +227,8 @@ $actualname = "";
 	// validate signup form on keyup and submit
 	$("#myform").validate({
 		rules: {
+
+			//Client
 			given_name: "required",
 			sur_name: "required",
 			mobile: {
@@ -229,10 +240,33 @@ $actualname = "";
 				required: true,
 				email: true,
 			},
+
+			//General
+			business_name : "required",
+			services_provided: "required",
+			target_audience: "required",
+			uniqueness: "required",
+			brands_differences: "required",
+			impression: "required",
+
+			//Logo
+			logo_style : {
+				required: true,
+				maxlength: 2,
+			},
+			logo_name: "required",
+			tagline: "required",
+			color_preferences: "required",
+			logo_attributes: "required",
+			message_delivery: "required",
+
 		},
+
 		messages: {
+
+			//Client
 			given_name: "Your name is required",
-			sur_name: "How should we address you?",
+			surname: "How should we address you?",
 			mobile: {
 				required: "Just in case we are interested in your voice",
 				digits: "Did I smell alphabets?",
@@ -242,6 +276,26 @@ $actualname = "";
 				required: "We need this to get back to you",
 				email: "We need a valid email to get back to you",
 			},
+
+			//General
+			business_name : "A name to address your business is the first step towards greatness!",
+			services_provided: "Be it doctors, repoman, terminators... yeah we are ready for it.",
+			target_audience: "Mark your targets and we'll get the job done!",
+			uniqueness: "You are special, so is your business! Tell us more about it!",
+			brands_differences: "Strive to be different is always a good way to win the game.",
+			impression: "Tell us what you want, and we will work out the perfect solution for you.",
+
+			//Logo
+			logo_style: {
+				required: "Do tell us the type of logo design you like!",
+				maxlength: "Two is all we need.",
+			},
+			logo_name: "Indulge us with the awesome name of your would-be shiny logo!",
+			tagline : "We are fine with Latin motto too, really.",
+			color_preferences : "Roses are red, violets are blue...",
+			logo_attributes : "A professional? A funny toy? A relaxing cafe?",
+			message_delivery : "THE LOGO SPEAKS FOR YOU... but you gotta decide what it should speaks, yeah?",
+
 		}
 	});
 });

@@ -76,7 +76,7 @@
   margin: 0;
 }
 input[type="text"],
-textarea {
+textarea,select {
   border-radius: 0px !important;
   outline: none;
   border: none;
@@ -88,7 +88,7 @@ textarea {
   color: #555555;
 }
 .details > input[type="text"],
-.details > textarea {
+.details > textarea, .details > select {
   border-radius: 0px !important;
   outline: none;
   border: 1px solid #c6d0da !important;
@@ -997,15 +997,16 @@ b{
      padding: 0 20px; 
      overflow: auto;
      margin: 20px 0 60px 0;
+     hr {
+      margin: 3px 0;
+     }
      b{
       text-transform: uppercase;
       letter-spacing: 1px;
     }
     dt,dd{
-      font-weight: normal;
       width: 50%;
       float: left;
-      border-bottom:1px solid #c6d0da;
       padding: 10px 0;
     }
     dd{
@@ -1049,8 +1050,11 @@ form{
       width: auto;
     }
   }
+  textarea {
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+  }
   input{
-    width: 70%;
     background-color: #fff;
     border: 1px solid #d5d5d5;
 
@@ -1068,6 +1072,11 @@ form{
       margin-right: 10px;
       padding: 10px;
     }
+  }
+  select {
+    width: 70%;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
   }
 }
 }
@@ -1359,7 +1368,7 @@ ul#results {
 
   li {
     widht: 100%;
-  padding: 5px 30px;
+    padding: 5px 30px;
     border-bottom: 1px solid #ddd;
 
     &:hover {
@@ -1403,5 +1412,25 @@ ul#results {
 
   .price {
     text-align: center;
+  }
+}
+.radioholder {
+  width: 70% !important;
+  vertical-align: top;
+  margin-left: 0%;
+  display: inline-block;
+}
+.radios {
+  border: 1px #ccc solid;
+  display: inline-block;
+  height: 115px;
+  width: 23%;
+  margin: 0 1% 2% 1%;
+  font-size: 12px;
+  text-align: center;
+
+  input[type='radio'] {
+    margin-right: 5px;
+    margin-top: 5px;
   }
 }

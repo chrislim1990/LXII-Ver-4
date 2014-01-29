@@ -71,7 +71,8 @@
   margin: 0;
 }
 input[type="text"],
-textarea {
+textarea,
+select {
   border-radius: 0px !important;
   outline: none;
   border: none;
@@ -83,7 +84,8 @@ textarea {
   color: #555555;
 }
 .details > input[type="text"],
-.details > textarea {
+.details > textarea,
+.details > select {
   border-radius: 0px !important;
   outline: none;
   border: 1px solid #c6d0da !important;
@@ -96,8 +98,8 @@ textarea {
   color: #000000;
 }
 label.error {
-  margin-bottom: 20px;
-  color: red;
+  margin-bottom: 10px;
+  color: #EC0303;
   width: 70% !important;
   margin-left: 30%;
   font-size: 12px;
@@ -986,16 +988,17 @@ hr {
   overflow: auto;
   margin: 20px 0 60px 0;
 }
+#checkout .col-md-4 dl hr {
+  margin: 3px 0;
+}
 #checkout .col-md-4 dl b {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 #checkout .col-md-4 dl dt,
 #checkout .col-md-4 dl dd {
-  font-weight: normal;
   width: 50%;
   float: left;
-  border-bottom: 1px solid #c6d0da;
   padding: 10px 0;
 }
 #checkout .col-md-4 dl dd {
@@ -1032,8 +1035,11 @@ hr {
 #checkout form label[for="newsletter"] {
   width: auto;
 }
+#checkout form textarea {
+  background-color: #fff;
+  border: 1px solid #d5d5d5;
+}
 #checkout form input {
-  width: 70%;
   background-color: #fff;
   border: 1px solid #d5d5d5;
 }
@@ -1052,6 +1058,11 @@ hr {
   margin: 20px 0;
   margin-right: 10px;
   padding: 10px;
+}
+#checkout form select {
+  width: 70%;
+  background-color: #fff;
+  border: 1px solid #d5d5d5;
 }
 #gn-menu {
   z-index: 9999;
@@ -1363,4 +1374,23 @@ ul#results li:last-child {
 }
 .checklistsub .price {
   text-align: center;
+}
+.radioholder {
+  width: 70% !important;
+  vertical-align: top;
+  margin-left: 0%;
+  display: inline-block;
+}
+.radios {
+  border: 1px #ccc solid;
+  display: inline-block;
+  height: 115px;
+  width: 23%;
+  margin: 0 1% 2% 1%;
+  font-size: 12px;
+  text-align: center;
+}
+.radios input[type='radio'] {
+  margin-right: 5px;
+  margin-top: 5px;
 }
