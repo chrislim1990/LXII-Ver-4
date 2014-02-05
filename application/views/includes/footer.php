@@ -1,7 +1,7 @@
 <div class="footer">
 	<div class="col-md-3 footer-inner">
 		<h4>Sitemap</h4>
-		<a href="#">About</a><br class="hide-on-small">
+		<a href="about">About</a><br class="hide-on-small">
 		<a href="portfolio">Portfolio</a><br class="hide-on-small">
 		<a href="contact">Contact</a><br class="hide-on-small">
 	</div>

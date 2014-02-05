@@ -1,2 +1,3 @@
 [27-Jan-2014 18:12:06 Asia/Kuala_Lumpur] PHP Fatal error:  Can't use function return value in write context in /home/lxcommy/public_html/draft/lxii_ver4/public_html/jcart/gateway.php on line 114
 [27-Jan-2014 18:15:58 Asia/Kuala_Lumpur] PHP Fatal error:  Can't use function return value in write context in /home/lxcommy/public_html/draft/lxii_ver4/public_html/jcart/gateway.php on line 114
+[29-Jan-2014 19:05:53 Asia/Kuala_Lumpur] PHP Fatal error:  Call to a member function empty_cart() on a non-object in /home/lxcommy/public_html/jcart/gateway.php on line 369

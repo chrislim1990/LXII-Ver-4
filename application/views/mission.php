@@ -8,7 +8,7 @@
 				<div class="big-icon">
 					<div class="fa fa-4x fa-smile-o"></div>
 				</div>
-				<h3>At LX2, We treat Clients as Friends.</h3>
+				<h3>At LX2, Clients are our Friends.</h3>
 				<div class="overlay"></div>
 			</div>
 

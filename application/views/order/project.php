@@ -125,8 +125,8 @@ $actualname = "";
 			}
 			echo "<form method='post' action='jcart/gateway.php'>";
 			echo "<input type='hidden' id='jcart-is-checkout' name='jcartIsCheckout' value='true' />";
-			echo "<input type='submit' id='jcart-paypal-checkout' name='jcartPaypalCheckout' value='Checkout with PayPal'>";
-			echo "<input type='submit' id='jcart-paypal-checkout' name='jcartPaypalCheckout' value='Offline Checkout'>";
+			// echo "<input type='submit' id='jcart-paypal-checkout' name='jcartPaypalCheckout' value='Checkout with PayPal'>";
+			// echo "<input type='submit' id='jcart-paypal-checkout' name='jcartPaypalCheckout' value='Offline Checkout'>";
 			echo "</form>";
 
 		}
@@ -211,6 +211,7 @@ $actualname = "";
 
 			$working_form = $_SESSION[$neededFormsName[0].'_form'];
 			$_SESSION['actualname'] = getName($working_form);
+			$_SESSION['form_details'] = $working_form;
 		}
 		?>
 	</div>

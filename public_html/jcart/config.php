@@ -27,14 +27,14 @@ $config['item']['add']            = 'my-add-button';    // Add to cart button
 
 // Your PayPal secure merchant ID
 // Found here: https://www.paypal.com/webapps/customerprofile/summary.view
-$config['paypal']['id']           = 'lucian0014-facilitator@live.co.uk';
+$config['paypal']['id']           = 'services@lx2.com.my';
 
 ////////////////////////////////////////////////////////////////////////////////
 // OPTIONAL SETTINGS
 
 // Three-letter currency code, defaults to USD if empty
 // See available options here: http://j.mp/agNsTx
-$config['currencyCode']           = 'USD';
+$config['currencyCode']           = 'MYR';
 
 // Add a unique token to form posts to prevent CSRF exploits
 // Learn more: http://conceptlogic.com/jcart/security.php
@@ -85,7 +85,7 @@ $config['paypal']['https']        = true;
 $config['paypal']['sandbox']      = true;
 
 // The URL a visitor is returned to after completing their PayPal transaction
-$config['paypal']['returnUrl']    = 'http://draft.lx2.com.my/lxii_ver4/public_html/order/success';
+$config['paypal']['returnUrl']    = 'http://www.lx2.com.my/public_html/order/success';
 
 // Return Method
 $config['paypal']['rm']    = '2';

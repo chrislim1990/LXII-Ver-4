@@ -1,3 +1,9 @@
+<?php 
+
+session_start();
+
+?>
+
 <div id="slides">
 	<div class="slides-container">
 		<?php

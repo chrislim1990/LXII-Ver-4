@@ -25,7 +25,7 @@ $config = array(
     ),
    'contact/email' => array(
     array(
-        'field' => 'emailaddress',
+        'field' => 'email',
         'label' => 'Email Address',
         'rules' => 'required|valid_email'
         ),
@@ -35,8 +35,8 @@ $config = array(
         'rules' => 'required|alpha'
         ),
     array(
-        'field' => 'title',
-        'label' => 'Title',
+        'field' => 'contact',
+        'label' => 'Contact',
         'rules' => 'required'
         ),
     array(

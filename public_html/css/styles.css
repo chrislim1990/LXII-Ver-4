@@ -99,7 +99,7 @@ select {
 }
 label.error {
   margin-bottom: 20px;
-  color: red;
+  color: #EC0303;
   width: 70% !important;
   margin-left: 30%;
   font-size: 12px;
@@ -1433,4 +1433,12 @@ ul#results li:last-child {
 .radios input[type='radio'] {
   margin-right: 5px;
   margin-top: 5px;
+}
+#contactform label.error {
+  margin-bottom: 20px;
+  color: #EC0303;
+  width: 70% !important;
+  font-size: 12px;
+  text-align: right;
+  margin-left: 0 !important;
 }

@@ -14,34 +14,53 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3>Contact Us</h3><br>
-			<?php 
-
-			echo form_open('contact/email');
-
-			echo form_label('', 'name');
-			echo form_input('name' ,set_value('name'), 'id="name" placeholder="Name"');
-
-			echo form_label('', 'company');
-			echo form_input('company' ,set_value('company'), 'id="company" placeholder="Company"');
-
-			echo form_label('', 'email');
-			echo form_input('email' ,set_value('email'), 'id="email" placeholder="Email"');
-
-			echo form_label('', 'contact');
-			echo form_input('contact' ,set_value('contact'), 'id="contact" placeholder="Contact Number"');
-
-			echo form_label('', 'message');
-			echo form_textarea('message' ,set_value('message'), 'id="message" placeholder="Message"');
-			echo "<br><br>";
-			echo form_submit('submit','Submit');
-
-			echo form_close();
-
-			echo validation_errors();
-
-			?>
+			<form action="contact/sent" method="post" accept-charset="utf-8" id="contactform">
+				<label for="name"></label><input type="text" name="name" value="" id="name" placeholder="Name">
+				<label for="company"></label><input type="text" name="company" value="" id="company" placeholder="Company">
+				<label for="email"></label><input type="text" name="email" value="" id="email" placeholder="Email">
+				<label for="contact"></label><input type="text" name="contact" value="" id="contact" placeholder="Contact Number">
+				<label for="message"></label><textarea name="message" cols="40" rows="10" id="message" placeholder="Message"></textarea>
+				<br><br>
+				<input type="submit" name="submit" value="Submit"></form>
+			</div>
 		</div>
 	</div>
-</div>
-<div class="block b100"></div>
-<hr class="nomargin">
+	<div class="block b100"></div>
+	<hr class="nomargin">
+
+	<script type="text/javascript">
+		$().ready(function() {
+
+			$("#contactform").validate({
+				rules: {
+
+					name: "required",
+					message: "required",
+					contact: {
+						required: true,
+						digits: true,
+						minlength: 6
+					},
+					email: {
+						required: true,
+						email: true,
+					}
+				},
+
+				messages: {
+
+					name: "Your name is required",
+					message : "At least you have to tell us what are your concern...",
+					contact: {
+						required: "Just in case we are interested in your voice",
+						digits: "Did I smell alphabets?",
+						minlength: "Please provide us your contact number along with your country's <a href='http://en.wikipedia.org/wiki/List_of_country_calling_codes' target='_blank'>dialing code</a>."
+					},
+					email: {
+						required: "We need this to get back to you",
+						email: "We need a valid email to get back to you",
+					},
+				}
+			});
+		});
+	</script>

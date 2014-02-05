@@ -16,9 +16,9 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 	<meta name="description" content="A Design Firm" />
 	<meta name="keywords" content="design firm" />
 	<meta name="author" content="LXII Design Studio" />
-	<base href="http://localhost:8888/">
-	<!-- <base href="http://github.localhost/LXII-Ver-4/public_html/"> -->
-	<!-- <base href="http://draft.lx2.com.my/lxii_ver4/public_html/"> -->
+	<!-- <base href="http://localhost:8888/"> -->
+	<!-- <base href="http://github.localhost/LXII-Ver-Master/public_html/"> -->
+	<base href="http://www.lx2.com.my/">
 
 	<?= links($config["css"],"css"); ?>
 	<script language="javascript" type="text/javascript" src="js/jquery.min.js"></script>
@@ -32,7 +32,7 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 
 	// discard "?" in the url
 	$breadcrumbs = explode("?",$_SERVER["REQUEST_URI"]);
-	$breadcrumbs = str_replace("/LXII-Ver-4/public_html", "", $breadcrumbs);
+	$breadcrumbs = str_replace("http://www.lx2.com.my/", "", $breadcrumbs);
 	// $breadcrumbs = str_replace("/lxii_ver4/public_html", "", $breadcrumbs);
 	
 	
@@ -52,6 +52,26 @@ $config["js"] = array('bootstrap','jquery.superslides.min','jquery.fancybox','jq
 
 			case 'public_html':
 			$friendly_text = 'Home';
+			break;
+
+			case 'success':
+			$friendly_text = 'Payment';
+			break;
+
+			case '1':
+			$friendly_text = 'Step 1';
+			break;
+
+			case '2':
+			$friendly_text = 'Step 2';
+			break;
+
+			case '3':
+			$friendly_text = 'Step 3';
+			break;
+
+			case 'project':
+			$friendly_text = 'Checkout';
 			break;
 
 			default:
