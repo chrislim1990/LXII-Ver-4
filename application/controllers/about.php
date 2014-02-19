@@ -7,5 +7,10 @@ class About extends CI_Controller {
 		$data["path"] = "about.php";
 		$this->load->view("includes/template",$data);
 	}
+	function methods()
+	{
+		$data["path"] = "methods.php";
+		$this->load->view("includes/template",$data);
+	}
 
 }

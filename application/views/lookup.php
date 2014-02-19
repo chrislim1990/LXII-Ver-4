@@ -13,22 +13,24 @@ echo "<div class='header_banner hide-on-small'></div>";
 <div class="container portfolio">
 	<div class="col-md-8 col-md-offset-2">
 		<?php
-		echo "<h2>"	.$records[0]->title		."</h2>";
+		$portfolio_title = $records[0]->title;
+		echo "<h2>"	.$portfolio_title		."</h2>";
 		echo "<h3>"	.$records[0]->cat	."</h3>";
 		echo "<div class='block'></div>";
 		echo "<p>"	.$records[0]->desc		."</p>";
+		
+		$portfolio_add = $records[0]->url;
+		$url = urlencode('http://'.$_SERVER['HTTP_HOST']."/portfolio/$portfolio_add");
 		?>
 
 		<div>
-			<a class="icon" href="http://www.facebook.com/LX2DS?ref=br_tf" target="_blank"><i class="fa fa-facebook"></i></a> 
-			<a class="icon" href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> 
-			<a class="icon" href="http://www.tumblr.com" target="_blank"><i class="fa fa-tumblr"></i></a> 
+			<a class="learn_more icon" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url?>" target="_blank"><i class="fa fa-facebook"></i></a> 
+			<a class="learn_more icon" href="http://twitter.com/home?status=<?php echo $url?>" target="_blank"><i class="fa fa-twitter"></i></a> 
 			<hr>
 		</div>
 	</div>
 	<div class="col-md-12">
 		<?php
-
 		$all_imgs = glob("img/portfolio/".$records[0]->url."/imgs/*.jpg");
 		
 		foreach ($all_imgs as $img) {
@@ -45,19 +47,17 @@ echo "<div class='header_banner hide-on-small'></div>";
 				$add_class = "logo_item";
 			}
 
-			echo "<img class='$add_class' src='$img'>";
+			echo "<img class='$add_class' src='$img' alt=''>";
 
 		}
 		?>
 	</div>
-	<div class="col-md-8 col-md-offset-2">
-		<div class='block'></div>
-		<hr>
-		<p class="nomargin">Start your own project now!</p>
-		<h3 class="nomargin call_to_action"><a href="/contact">Contact Us</a></h3>
-		<hr>
-	</div>
-
 </div>	
 <div class="block b100"></div>
+<div class="call-to-action">
+	<div class="container">
+		<h4>Start your own project now!</h4>
+		<a href="order" class="learn_more">Get Started Now!</a>
+	</div>
+</div>
 <hr class="nomargin">

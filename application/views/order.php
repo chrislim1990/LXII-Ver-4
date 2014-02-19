@@ -6,12 +6,13 @@
 <div class="header_banner"></div>
 <div id="product" class="container">
 	<h1>Products</h1>
-
+	<!-- <h3>Lorem ipsum dolor sit amet</h3> -->
+<div class="block b100"></div>
 	<ul>
-		<li class="filter" data-filter="all">All</li>
-		<li class="filter" data-filter="web">Web</li>
-		<li class="filter" data-filter="print">Print</li>
-		<li class="filter" data-filter="branding">Branding</li>
+		<li class="filter" data-filter="all"><i class="fa fa-th"></i> All</li>
+		<li class="filter" data-filter="web"><i class="fa fa-desktop"></i> Web</li>
+		<li class="filter" data-filter="print"><i class="fa fa-bookmark-o"></i> Graphic</li>
+		<li class="filter" data-filter="branding"><i class="fa fa-star"></i> Branding</li>
 	</ul>
 
 

@@ -1,7 +1,6 @@
 
 // jCart v1.3
 // http://conceptlogic.com/jcart/
-
 $(function() {
 
 	var JCART = (function() {
@@ -9,8 +8,8 @@ $(function() {
 		// This script sends Ajax requests to config-loader.php and relay.php using the path below
 		// We assume these files are in the 'jcart' directory, one level above this script
 		// Edit as needed if using a different directory structure
-		// var path = 'jcart',
-		var path = 'http://lx2.com.my/jcart',
+		var path = 'jcart',
+		// var path = 'http://lx2.com.my/jcart',
 			container = $('#jcart'),
 			token = $('[name=jcartToken]').val(),
 			tip = $('#jcart-tooltip');

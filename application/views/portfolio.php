@@ -1,10 +1,10 @@
 <div class="container portfolio">
 	<div class="col-md-12">
 
-		<div class="block b100"></div>
+		<div class="block b200"></div>
 		<h1>Portfolio</h1>
-		<h3>At LX2, We create value and make a differance</h3>
-		<div class="block b100"></div>
+		<h3>At LX2, We create value and make a difference</h3>
+		<div class="block b200"></div>
 	</div>
 	<?php 
 
@@ -28,7 +28,7 @@
 							<h4>$r->title</h4><p>$r->cat</p>
 						</div>
 					</span>
-					<img src='$cover_img'>
+					<img src='$cover_img' alt='$r->title thumbnail'>
 				</a>			
 			</div>
 			";

@@ -81,25 +81,25 @@ $current_item = $records[0];
 				}
 
 				?> 
-				<input id="product_place_order" type="submit" name="my-add-button" value="Place Order" class="learn_more invert place_order">
+				<input id="product_place_order" type="submit" name="my-add-button" value="Place Order" class="learn_more place_order">
 			</form>
-			<p>Unlimited amendments with 2 options. Insanely happy result.</p>
+			<p>Choose 1 from 2 concepts + Unlimited Amendments = Awesome Result</p>
 		</div>
 
 		<div class="iconholder">
-			<a class="icon" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flx2.com.my%2Fpublic_html%2Forder%2F<?=$current_item->id ?>" target="_blank"><i class="fa fa-facebook"></i></a> 
-			<a class="icon" href="https://twitter.com/share?text=%23LX2%20Have%20a%20look%20at" target="_blank"><i class="fa fa-twitter"></i></a> 
-			<a class="icon" href="http://www.tumblr.com/share/link?url=<?=urlencode("http://lx2.com.my/order/".$current_item->id)?>&name=<?=urlencode($current_item->title." for only MYR".$current_item->price)?>&description=<?=urlencode($current_item->desc)?>" title="Share on Tumblr"><i class="fa fa-tumblr"></i></a> 
+			<a class="learn_more icon" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flx2.com.my%2Forder%2F<?=$current_item->id ?>" target="_blank"><i class="fa fa-facebook"></i></a> 
+			<a class="learn_more icon" href="https://twitter.com/share?text=%23LX2%20Have%20a%20look%20at" target="_blank"><i class="fa fa-twitter"></i></a> 
+			<a class="learn_more icon" href="http://www.tumblr.com/share/link?url=<?=urlencode("http://lx2.com.my/order/".$current_item->id)?>&name=<?=urlencode($current_item->title." for only MYR".$current_item->price)?>&description=<?=urlencode($current_item->desc)?>" title="Share on Tumblr"><i class="fa fa-tumblr"></i></a> 
 		</div>
 
 		<hr>
 		<p>
-			<b>Free Global Shipping</b><br>
-			On orders over $150<br>
-			Receive by January 19th<br>
+			<b>Unique Design</b><br>
+			We guarantee you that there shall be no two similar design like the one we did for yours.
 			<br>
-			<b>Custom Made</b><br>
-			Based on your measurement profile
+			<br>
+			<b>Friend-2-Friend</b><br>
+			You are our buddy! We will do our best to coordinate with you and fulfil all your needs and requests, and even beyond your expectations!
 		</p>
 		<hr>
 		<p>
