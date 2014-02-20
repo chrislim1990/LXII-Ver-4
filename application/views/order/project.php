@@ -1,18 +1,13 @@
 <?php
 
-// jCart v1.3
-// http://conceptlogic.com/jcart/
-
-// This file demonstrates a basic checkout page
-
-// If your page calls session_start() be sure to include jcart.php first
 include_once('jcart/jcart.php');
 // session_destroy();
 // session_start();
 
 $actualname = "";
-
 ?>
+
+
 <div class="container" id="checkout">
 
 	<?php
@@ -36,35 +31,28 @@ $actualname = "";
 
 		$neededFormsName = array();
 
-		function matchForms($itemID){
-			switch ($itemID) {
-				case '1':
+		function matchForms($name){
+			switch ($name) {
+				case 'Logo Design':
 				return 'Logo';
 				break;
 
-				case '47':
+				case 'Website':
 				return 'Website';
-				break;
-
-				default:
-				return 'General';
 				break;
 			}
 		}
 
 		// Find the needed forms
-		foreach ($itemIdsInCart as $i) {
+		foreach ($itemNamesInCart as $i) {
 			$form_name = matchForms($i);
 			$neededFormsName = AddIntoArray($form_name,$neededFormsName);
 		}
-
-		// Check is Logo/Website exist individualy without general form
-		if (!in_array("General", $neededFormsName)) {
-			array_unshift($neededFormsName, "General");
-		}
 		
 		// Add in General form to the first of Array
+		array_unshift($neededFormsName, "General");
 		array_unshift($neededFormsName, "Client");
+
 
 		// Get all the forms from databse & insert the needed one into array
 		foreach ($records as $r) {
@@ -96,7 +84,7 @@ $actualname = "";
 			GenerateForm($project_inputs);
 			echo "</div>";
 
-			echo form_submit('project_submit', 'Next');
+			echo '<input type="submit" name="project_submit" value="Next" class="learn_more">';
 			echo form_close();
 		}else{
 			// Reset current count to 4 so that we can use it for sidebar summary
@@ -104,7 +92,7 @@ $actualname = "";
 
 			// Display Summary Here
 			echo "<h2>Project Summary</h2>";
-
+			echo "<div class='form_wrapper summary'>";
 			$summary_forms = array();
 			foreach ($active_forms as $a) { $summary_forms[] = $a->title; }
 			foreach ($summary_forms as $a) {
@@ -112,21 +100,23 @@ $actualname = "";
 
 				foreach ($_SESSION[$summary_forms_name] as $key => $value) {
 					if ($key == 'title') {
+						echo "<table class='table table-hover'>";
 						echo "<h3>".$value."</h3>";
 					}else if ($value && $key!='client_submit' && $key!='project_submit') {
 						// Remove Underscore
 						$key = str_replace('_',' ',$key);
 						// Convert to title case
 						$key = ucwords(strtolower($key));
-						echo $key." : ".$value."<br>";
+						echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
 					}
 				}
-				echo "<hr>";
+				echo "</table>";
 			}
+			echo "</div>";
 			echo "<form method='post' action='jcart/gateway.php'>";
 			echo "<input type='hidden' id='jcart-is-checkout' name='jcartIsCheckout' value='true' />";
-			// echo "<input type='submit' id='jcart-paypal-checkout' name='jcartPaypalCheckout' value='Checkout with PayPal'>";
-			// echo "<input type='submit' id='jcart-paypal-checkout' name='jcartPaypalCheckout' value='Offline Checkout'>";
+			echo "<input class='learn_more' type='submit' id='jcart-paypal-checkout' name='jcartPaypalCheckout' value='Checkout with PayPal'>";
+			// echo "<input class='learn_more' type='submit' id='jcart-paypal-checkout' name='jcartPaypalCheckout' value='Offline Checkout'>";
 			echo "</form>";
 
 		}
@@ -157,7 +147,7 @@ $actualname = "";
 
 		function renderProjectSummary($array){
 			foreach ($array as $key => $value) {
-				if ($key != 'title' && $key != 'project_submit' && $value) {
+				if ($key != 'title' && $key != 'project_submit' && $key != 'newsletter' && $value) {
 					if($key == 'logo_type'){
 
 						$key = str_replace('_',' ',$key);
@@ -200,8 +190,10 @@ $actualname = "";
 		if ($current_count-1>0) {
 			echo "<div id='project_summary'>";
 			echo "<h3>Project Summary</h3>";
+
 			for ($i=0; $i < $current_count-1; $i++) { 
 				$working_form = $_SESSION[$neededFormsName[$i].'_form'];
+
 				echo "<dl>";
 				echo "<dt><b>".$working_form['title']."</b></dt><dd>&nbsp;</dd><hr>";
 				echo renderProjectSummary($working_form);

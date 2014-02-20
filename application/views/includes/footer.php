@@ -28,11 +28,8 @@
 				};
 
 				foreach ($q as $r) {
-					if ($r->img == "") {
-						$r->img = "default.jpg";
-					}else{
-						$r->img = $r->img.".jpg"; 
-					}
+
+					$r->img = $r->img ? $r->img.".jpg":"default.jpg";
 
 					echo "
 					<div class='item'>
@@ -51,7 +48,9 @@
 		</div>
 		<div class="col-sm-4 col-md-4 footer-inner">
 			<h4>Contact Us</h4>
-			<p>A-6-3A, Casa Idaman, 51100, KL, Malaysia<br>
+			<p>
+				<b>LXII Design Studio</b><br>
+				A-6-3A, Casa Idaman, 51100, KL, Malaysia<br>
 				<a href="mailto:services@lx2.com.my">services@lx2.com.my</a><br>
 				(+60)3-62418948
 			</p>
@@ -74,13 +73,13 @@
 	new gnMenu( document.getElementById( 'gn-menu' ) );
 
 // google-analytics
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-48201751-1', 'lx2.com.my');
-  ga('send', 'pageview');
+ga('create', 'UA-48201751-1', 'lx2.com.my');
+ga('send', 'pageview');
 
 
 // testimonies

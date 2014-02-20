@@ -4,24 +4,29 @@ class Portfolio extends CI_Controller {
 
 	function index()
 	{
-		$data = array();
+		$data = array(
+			'title' => "Portfolio",
+			'description' => "At LX2, We create value and make a difference.",
+			'path' => "portfolio.php",
+			'records' => $this->data_model->get_all_projects()
+			);
 
-		if ($q = $this->data_model->get_records()) {
-			$data["records"] = $q;
-		}
-		$data["path"] = "portfolio.php";
 		$this->load->view("includes/template",$data);
 	}
 
 
 	function lookup()
 	{
-		$data = array();
+		$project = $this->data_model->get_project();
 
-		if ($q = $this->data_model->get_products()) {
-			$data["records"] = $q;
-		}
-		$data["path"] = "lookup.php";
+		$data = array(
+			'project' => $project,
+			'other_projects' => $this->data_model->get_all_other_projects(),
+			'title' => "Portfolio | ".$project[0]->title,
+			'description' => $project[0]->desc,
+			'path' => "lookup.php",
+			);
+
 		$this->load->view("includes/template",$data);
 	}
 

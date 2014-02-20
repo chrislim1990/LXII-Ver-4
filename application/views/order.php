@@ -1,5 +1,5 @@
 <style type='text/css'>
-		.header_banner {background-image:url('img/products_banner/header.jpg');height: 400px;}
+	.header_banner {background-image:url('img/products_banner/header.jpg');height: 400px;}
 	/*.header_banner {background-color:#ededed;height: 400px;}*/
 </style>
 
@@ -7,12 +7,12 @@
 <div id="product" class="container">
 	<h1>Products</h1>
 	<!-- <h3>Lorem ipsum dolor sit amet</h3> -->
-<div class="block b100"></div>
+	<div class="block b100"></div>
 	<ul>
-		<li class="filter" data-filter="all"><i class="fa fa-th"></i> All</li>
-		<li class="filter" data-filter="web"><i class="fa fa-desktop"></i> Web</li>
-		<li class="filter" data-filter="print"><i class="fa fa-bookmark-o"></i> Graphic</li>
-		<li class="filter" data-filter="branding"><i class="fa fa-star"></i> Branding</li>
+		<li class="filter gn-icon gn-icon-product" data-filter="all"> All</li>
+		<li class="filter gn-icon gn-icon-web" data-filter="web"> Web</li>
+		<li class="filter gn-icon gn-icon-graphic" data-filter="print"> Graphic</li>
+		<li class="filter gn-icon gn-icon-branding" data-filter="branding"> Branding</li>
 	</ul>
 
 
@@ -26,21 +26,18 @@
 				$cover_img = current(glob("img/brokenlink.jpg"));
 			}
 			// $cover_img = current(glob("img/brokenlink.jpg"));
-			if ($cover_img && $r->hidden!=1) {
+			$badge = $r->featured==1 ? "<span class='badge'>Featured</span>" : "";
 
-				$badge = $r->featured==1 ? "<span class='badge'>Featured</span>" : "";
+			echo "
+			<li class='mix $r->cat grid_item'>
+				<a href='order/$r->id''>
+					<img src='$cover_img'>
+					$badge
+					<h4>$r->title</h4><p>MYR $r->price</p>
+				</a>
 
-				echo "
-				<li class='mix $r->cat grid_item'>
-					<a href='order/$r->id''>
-						<img src='$cover_img'>
-						$badge
-						<h4>$r->title</h4><p>MYR $r->price</p>
-					</a>
-
-				</li>
-				";
-			}
+			</li>
+			";
 		};
 		?>
 	</ul>

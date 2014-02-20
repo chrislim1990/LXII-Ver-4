@@ -52,12 +52,12 @@ function GenerateForm($form_array)
 
 			//If Radio
 			case 'checkbox2':
-			echo "<div class='row radioholder'>";
+			echo "<div class='radioholder'>";
 			$geh = explode(",",$fi[4]);
 			$i = 0;
 			foreach ($geh as $g) {
 				$i ++;
-				echo "<div class='col-md-3 radios'>";
+				echo "<div class='radios'>";
 				echo "<img src='img/logo-type-$i.jpg'>";
 				echo "<input type='checkbox' name='$fi[1][]' id='$fi[1]' value='".strtolower(str_replace(' ', '_', $g))."'>".$g."</input>";
 				echo "</div>";

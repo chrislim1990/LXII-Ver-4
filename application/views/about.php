@@ -62,46 +62,38 @@
 			<div class="col-md-8 col-md-offset-1">
 				<div class="panel-group" id="accordion">
 					<?php 
+					foreach ($faqs as $key => $faq) {
+						echo "
+						<div class='panel panel-default'>
+							<div class='panel-heading'>
+								<h3 class='panel-title'>
+									<a data-toggle='collapse' data-parent='#accordion' href='#faq-$key' class='accordion-toggle collapsed'>
+										$faq->question
+										<span class='accordion_icon_mark'></span>
+									</a>
+								</h3>
+							</div>
+							<div id='faq-$key' class='panel-collapse collapse' style='height: 0px;'>
+								<div class='panel-body'>
+									<p>$faq->answer</p>
+								</div>
+							</div>
+						</div>
+						";
+					}
+					?>
 
-					$faqs = array(
-						array("What kind of services does LX2 provide?","We provide all kinds of graphic and web designs as requested by clients, from logo to website --- everything you need for your business."),
-						array("LX2 is an online design firm, can we still have a face-to-face meeting?","Yes! We can always have a face-to-face meeting if that is the client's preference. This is because we want to inform and educate our valued client that we are an online design firm."),
-						array("How long does it takes for a website to be completed?","For most of the web projects, we will try to complete it <a>within the time frame of 3 to 4 weeks</a> with the client’s full cooperation in providing necessary details such as required text and images. Thus client’s full cooperation is crucial in order to avoid any unwanted delay."),
-						array("How much does a complete website costs?","The cost of a web site varies depending on <a>the site's complexity</a>. A basic website containing a home, about, gallery and contact page. We will be pleased to discuss with you when we receive your call, email, or order list through our website.  After that, we will send you a quotation based on your unique needs and design requirements.")
-						);
+				</div>
 
-foreach ($faqs as $key => $faq) {
-	echo "
-	<div class='panel panel-default'>
-		<div class='panel-heading'>
-			<h3 class='panel-title'>
-				<a data-toggle='collapse' data-parent='#accordion' href='#faq-$key' class='accordion-toggle collapsed'>
-					$faq[0]
-					<span class='accordion_icon_mark'></span>
-				</a>
-			</h3>
-		</div>
-		<div id='faq-$key' class='panel-collapse collapse' style='height: 0px;'>
-			<div class='panel-body'>
-				<p>$faq[1]</p>
 			</div>
 		</div>
+
+		<div class="block b200"></div>
 	</div>
-	";
-}
-?>
-
-</div>
-
-</div>
-</div>
-
-<div class="block b200"></div>
-</div>
-<div class="call-to-action">
-	<div class="container">
-		<h4>Have you fallen in love yet?</h4>
-		<a href="order" class="learn_more">Get Started Now!</a>
+	<div class="call-to-action">
+		<div class="container">
+			<h4>Have you fallen in love yet?</h4>
+			<a href="order" class="learn_more">Get Started Now!</a>
+		</div>
 	</div>
-</div>
-<hr class="nomargin">
+	<hr class="nomargin">

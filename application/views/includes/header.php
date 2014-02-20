@@ -10,8 +10,9 @@ $config["js"] = array('bootstrap.min','jquery.fancybox','jquery.scrollTo.min','v
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
 <head>
-	<title>LX2 | Connect . Refine . Perpetual | <?php echo ucwords($this->uri->segment(1)); ?></title>
-	<meta name="description" content="A professional web-based design firm. We are ready to bring your brands to new heights. Online purchase conveniently available." />
+	<title>LXII | <?php echo $title; ?></title>
+	<meta name="description" content="<?php echo $description; ?>" />
+
 	<meta name="keywords" content="professional website design, web design malaysia, malaysia web design, online design firm malaysia, malaysia design studio, web design, logo design, logo, flyer design, flyers design, malaysia logo design, website design kl, webpage design, web design company, graphic design, online design services, malaysia website design" />
 	<meta name="author" content="LX2 Design Studio" />
 	<base href="http://localhost:8888/">
@@ -64,6 +65,7 @@ $config["js"] = array('bootstrap.min','jquery.fancybox','jquery.scrollTo.min','v
 	// discard "?" in the url
 	$breadcrumbs = explode("?",$_SERVER["REQUEST_URI"]);
 	$breadcrumbs = str_replace("http://www.lx2.com.my/", "", $breadcrumbs);
+	$breadcrumbs = str_replace("_", " ", $breadcrumbs);
 	// $breadcrumbs = str_replace("/lxii_ver4/public_html", "", $breadcrumbs);
 	
 	
@@ -127,7 +129,7 @@ $config["js"] = array('bootstrap.min','jquery.fancybox','jquery.scrollTo.min','v
 
 			} else if(isset($breadcrumbs[2]) && $breadcrumbs[1]=="portfolio") {
 
-				$tmp_str = "<span>".$records[0]->title."</span>";
+				$tmp_str = "<span>".$project[0]->title."</span>";
 
 			} else {
 
@@ -158,10 +160,10 @@ $config["js"] = array('bootstrap.min','jquery.fancybox','jquery.scrollTo.min','v
 
 						<li>
 							<a class="gn-icon gn-icon-thumbs" href="about">About LXII</a>
-							<!-- <ul class="gn-submenu">
-								<li><a href="mission" class="gn-icon gn-icon-thumbs">Our Mission</a></li>
-								<li><a class="gn-icon gn-icon-thumbs">Charity</a></li>
-							</ul> -->
+							<ul class="gn-submenu">
+								<!-- <li><a href="mission" class="gn-icon gn-icon-thumbs">Our Mission</a></li> -->
+								<li><a class="gn-icon gn-icon-welfare" href="about/society_welfare">Society Welfare</a></li>
+							</ul>
 						</li>
 						<li><a class="gn-icon gn-icon-portfolio" href="portfolio">Porfolio</a></li>
 						<li>
@@ -169,7 +171,7 @@ $config["js"] = array('bootstrap.min','jquery.fancybox','jquery.scrollTo.min','v
 							<ul class="gn-submenu">								
 								<li><a class="gn-icon gn-icon-web"  href="order?cat=web">Web</a></li>
 								<li><a class="gn-icon gn-icon-graphic"  href="order?cat=print">Graphic</a></li>
-								<li><a class="gn-icon gn-icon-star"  href="order?cat=branding">Branding</a></li>
+								<li><a class="gn-icon gn-icon-branding"  href="order?cat=branding">Branding</a></li>
 							</ul>
 						</li>
 						<li><a class="gn-icon gn-icon-contact" href="contact">Contact</a></li>

@@ -64,7 +64,7 @@ $current_item = $records[0];
 					case 'Website':
 					echo form_label('Unique Pages ', 'pages');
 					echo '<input type="text" id="pages" name="my-item-extra" value="1" size="3" autocomplete="off">';
-					echo "<p class='help'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>";
+					// echo "<p class='help'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>";
 					echo form_label('CMS ', 'pages');
 					echo '<input type="checkbox" name="vehicle" value="Bike">MYR 1200<br>';
 					echo form_label('Mobile Version ', 'pages');
