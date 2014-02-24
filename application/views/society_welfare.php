@@ -16,8 +16,10 @@
 				We are a growing design firm, but we believe that any contribution to the society is worthwhile regardless of its size and scale.
 				<br><br>
 				For every deal we made, RM100 will be donated to a local orphanage. We believe that all orphans should be given the chance to shine in the future, as it is always said that children are the future of our world.
+				<br><br>
+				<h4>Let's make a deal at LX2. Together we build a better world.</h4>
 			</p>
-			<div class="block"></div>
+			<div class="block b25"></div>
 			<a class='learn_more' href='order'>Start your project now!</a>
 			<br><br>
 			<p>or alternatively you can directly make a donation via <a class="shelter_home" href="http://www.shelterhome.org/">Shelter Home's website</a></p>

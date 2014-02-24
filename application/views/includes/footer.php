@@ -47,19 +47,23 @@
 			<a class="btn next"><i class="fa fa-angle-right"></i></a>
 		</div>
 		<div class="col-sm-4 col-md-4 footer-inner">
-			<h4>Contact Us</h4>
-			<p>
-				<b>LXII Design Studio</b><br>
-				A-6-3A, Casa Idaman, 51100, KL, Malaysia<br>
-				<a href="mailto:services@lx2.com.my">services@lx2.com.my</a><br>
-				(+60)3-62418948
-			</p>
+			<h4>LXII Design Studio</h4>
+			<dl>
+				<dt>Address</dt>
+				<dd>A-6-3A, Casa Idaman, 51100, KL, Malaysia</dd>
+				<dt>Email</dt>
+				<dd><a href="mailto:services@lx2.com.my">services@lx2.com.my</a></dd>
+				<dt>Office</dt>
+				<dd>(+60)3-62418948</dd>
+				<dt>H/p</dt>
+				<dd>Lynn 017-623 0327</dd>
+			</dl>
 		</div>
 	</div>
 </div>
 <hr class="nomargin">
 <div class="footer-lower">
-	<h4>Made in KL</h4>
+	<h4>Made in KL with Love</h4>
 </div>
 
 

@@ -39,6 +39,8 @@ session_start();
 			singleItem : true,
 			lazyLoad : true,
 			addClassActive : true,
+			navigation : true,
+			navigationText : ["l","j"]
 		});
 
 		$('#home-slide .item').height($(window).height());

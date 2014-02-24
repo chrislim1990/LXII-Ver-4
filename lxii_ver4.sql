@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 20, 2014 at 02:26 PM
+-- Generation Time: Feb 24, 2014 at 08:38 AM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -75,7 +75,6 @@ INSERT INTO `forms` (`id`, `title`, `content`) VALUES
 CREATE TABLE `portfolio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
-  `tagline` varchar(255) NOT NULL,
   `desc` text NOT NULL,
   `services` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
@@ -84,23 +83,24 @@ CREATE TABLE `portfolio` (
   `featured` int(11) NOT NULL DEFAULT '0',
   `hidden` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `portfolio`
 --
 
-INSERT INTO `portfolio` (`id`, `title`, `tagline`, `desc`, `services`, `url`, `year`, `color`, `featured`, `hidden`) VALUES
-(3, 'Icy Roll', 'Tasty & Fun', 'With its idea stems upon the feeling of happiness and joyfulness, we created a bright and refreshing look for Icy Roll. Audiences would surely love the colorful and refreshing sight of Icy Roll''s corporate items in hot summer.', 'Branding, Name Card, Kiosk, Print Ads', 'icyroll', 2013, 'black', 0, 1),
-(4, 'Sentosa Villa', 'Natural Retreat for Everyone', 'In the first sight, the website for Sentosa Villa would bestows the feeling of warm and elegance to its audiences. That is what the hotel owner wishes to deliver: to let the audiences feel as welcoming as possible. \r\n<br><br>\r\nWe used fonts and colors of classical feel to further enhance the elegant feeling a hotel or family resort should have. The contents is delivered in a clean and simple way to aids navigation as older family members were added into our consideration.', 'Photography, Web Design & Coding', 'sentosa', 2012, 'white', 1, 0),
-(5, 'Hock Hean Hui', 'Professional Blues', 'Website for Hock Hean Hui aims at middle age workers and truck drivers, so it mostly emphasizes on the visibility of contents. Thus, we made the website as simple as possible, while also comes with adequate amount of design elements to make it looks modern and clean.', 'Web Design & Coding, Company Profile', 'hhh', 2012, 'black', 0, 0),
-(7, 'Nowax', 'We designed Nowax''s website to be high-tech and modern looking, as suitable to how its industry supposed to be. The color combination of teal and metallic grey clearly delivers the theme of the whole industry.', 'We designed Nowax''s website to be high-tech and modern looking, as suitable to how its industry supposed to be. The color combination of teal and metallic grey clearly delivers the theme of the whole industry.', 'Branding, Logo, Packaging, Web Design & Coding', 'nowax', 2012, 'black', 0, 0),
-(8, 'Logo', 'Unique . Memorable . Long-lasting', 'The art of designing a logo may looks like a simple task, but to be a truly perfect logo, one has to be with these three major factors: unique, memorable and accurate. \nTo be unique is to stand out among your business opponents. \nTo be memorable is to be able to stays inside your audiences'' mind easily, and attractively. \nLastly, to be accurate is that the logo could delivers your business directly precisely to the audiences. \nWe at LX2 design studios always do our best to put these three major factors into your design.', 'N/A', 'logo', 2013, 'black', 0, 0),
-(9, 'Dukes', 'Professional Confidence', 'Dukes''s branding is done with the expression of professionalism in mind, to bolster the confidence of audiences and encourage them to deal with someone that has the professionalism to deal with their queries.', 'Branding, Logo, Name Card, Letterhead', 'dukes', 2013, 'black', 0, 0),
-(10, 'New Mogen', 'Classy and Professional', 'An investors'' club, New Mogen is designed to provide audiences with the feel of confidence and high-class standard, as if taking part will ensures an uplifting to your current living.', 'Branding, Logo, Photography, Website Design & Coding', 'nm', 2013, 'black', 0, 0),
-(11, 'JCI', 'Elegant & Beauty', 'The entry ticket is designed to fit the elegance of the event.', 'Ticket Design', 'jci', 2012, 'black', 0, 0),
-(12, 'Hunny B', 'Fun & Tasty', 'The reason we use white and clean background for Hunny B is to attract the audiences with the colorfulness of photos and images in the website. \r\n<br><br>\r\nThe color usage is designed to be brighter and more lively to attract audiences from lower age range.', 'Branding . Web', 'hunnyb', 2013, 'black', 0, 1),
-(13, 'Ericsson', 'Colorful Simplicity', 'A video presentation made for Ericsson, simple while colorfully presented in the same time.', 'Animation', 'ericsson', 2013, 'black', 0, 0);
+INSERT INTO `portfolio` (`id`, `title`, `desc`, `services`, `url`, `year`, `color`, `featured`, `hidden`) VALUES
+(3, 'Icy Roll', 'With its idea stems upon the feeling of happiness and joyfulness, we created a bright and refreshing look for Icy Roll. Audiences would surely love the colorful and refreshing sight of Icy Roll''s corporate items in hot summer.', 'Branding, Name Card, Kiosk, Print Ads', 'icyroll', 2013, 'black', 0, 1),
+(4, 'Sentosa Villa', 'In the first sight, the website for Sentosa Villa would bestows the feeling of warm and elegance to its audiences. That is what the hotel owner wishes to deliver: to let the audiences feel as welcoming as possible. \r\n<br><br>\r\nWe used fonts and colors of classical feel to further enhance the elegant feeling a hotel or family resort should have. The contents is delivered in a clean and simple way to aids navigation as older family members were added into our consideration.', 'Photography, Web Design & Coding', 'sentosa', 2012, 'white', 1, 0),
+(5, 'Hock Hean Hui', 'Website for Hock Hean Hui aims at middle age workers and truck drivers, so it mostly emphasizes on the visibility of contents. Thus, we made the website as simple as possible, while also comes with adequate amount of design elements to make it looks modern and clean.', 'Web Design & Coding, Company Profile', 'hhh', 2012, 'black', 0, 0),
+(7, 'Nowax', 'We designed Nowax''s website to be high-tech and modern looking, as suitable to how its industry supposed to be. The color combination of teal and metallic grey clearly delivers the theme of the whole industry.', 'Branding, Logo, Packaging, Web Design & Coding', 'nowax', 2012, 'black', 0, 0),
+(8, 'Logo', 'The art of designing a logo may looks like a simple task, but to be a truly perfect logo, one has to be with these three major factors: unique, memorable and accurate. \nTo be unique is to stand out among your business opponents. \nTo be memorable is to be able to stays inside your audiences'' mind easily, and attractively. \nLastly, to be accurate is that the logo could delivers your business directly precisely to the audiences. \nWe at LX2 design studios always do our best to put these three major factors into your design.', 'N/A', 'logo', 2013, 'black', 0, 0),
+(9, 'Dukes', 'Dukes''s branding is done with the expression of professionalism in mind, to bolster the confidence of audiences and encourage them to deal with someone that has the professionalism to deal with their queries.', 'Branding, Logo, Name Card, Letterhead', 'dukes', 2013, 'black', 0, 0),
+(10, 'New Mogen', 'An investors'' club, New Mogen is designed to provide audiences with the feel of confidence and high-class standard, as if taking part will ensures an uplifting to your current living.', 'Branding, Logo, Photography, Website Design & Coding', 'nm', 2013, 'black', 0, 0),
+(11, 'JCI', 'The entry ticket is designed to fit the elegance of the event.', 'Ticket Design', 'jci', 2012, 'black', 0, 0),
+(12, 'Hunny B', 'The reason we use white and clean background for Hunny B is to attract the audiences with the colorfulness of photos and images in the website. \r\n<br><br>\r\nThe color usage is designed to be brighter and more lively to attract audiences from lower age range.', 'Branding . Web', 'hunnyb', 2013, 'black', 0, 1),
+(13, 'Ericsson', 'A video presentation made for Ericsson, simple while colorfully presented in the same time.', 'Animation', 'ericsson', 2013, 'black', 0, 0),
+(14, 'Beiersdorf', 'An email greeting card made for Beiersdorf, infused with joyous Christmas mood while remain clean and simple in the same time.', 'Email Greeting Card', 'bdf', 2013, 'white', 0, 0);
 
 -- --------------------------------------------------------
 

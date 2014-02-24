@@ -289,6 +289,7 @@ h2.orderh2 {
 body {
   background: none;
   overflow-x: hidden;
+  color: #000;
 }
 img {
   max-width: 100%;
@@ -408,7 +409,9 @@ hr {
   top: 30%;
 }
 #new-mogen {
-  top: 60%;
+  top: 30%;
+  left: 55%;
+  text-align: left;
 }
 #new-mogen .categories {
   margin-bottom: 50px;
@@ -429,8 +432,6 @@ hr {
   line-height: 21px;
 }
 .footer .footer-inner {
-  color: #555;
-  font-size: 13px;
   border-left: 1px solid #c6d0da;
   height: 180px;
 }
@@ -569,12 +570,6 @@ hr {
   .portfolio .landscape {
     width: 100%;
   }
-  .portfolio .col-md-4 {
-    width: 45% !important;
-  }
-  .portfolio .col-md-8:not(.col-md-offset-2) {
-    width: 93% !important;
-  }
 }
 @media screen and (max-width: 480px) {
   body {
@@ -591,12 +586,6 @@ hr {
   }
   .container.portfolio {
     padding: 0;
-  }
-  .portfolio .col-md-4 {
-    width: 94% !important;
-  }
-  .portfolio .col-md-8:not(.col-md-offset-2) {
-    width: 94% !important;
   }
   .sidebar-top {
     display: block ;
@@ -1093,12 +1082,12 @@ li.gn-icon:before {
   margin: 0.5%;
   float: left;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  width: 49%;
 }
-.col-md-8.grid_item {
-  width: 65%;
-}
-.col-md-4.grid_item {
-  width: 32%;
+.portfolio .grid_item {
+  height: 250px;
 }
 .col-md-3.grid_item {
   width: 24%;
@@ -1152,7 +1141,7 @@ li.gn-icon:before {
 #Grid .mix {
   opacity: 0;
   display: none;
-  width: 19%;
+  width: 24%;
   float: left;
   position: relative;
   margin: .5%;
@@ -1521,4 +1510,30 @@ ul#results li:last-child {
 #checkout .summary .table td:first-child {
   font-weight: bold;
   width: 40%;
+}
+.owl-theme .owl-controls .owl-buttons div {
+  border-radius: 0;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin: 0;
+  opacity: 1;
+  height: 50px;
+  width: 50px;
+  color: #000;
+  line-height: 50px;
+  font-family: 'lx2';
+  font-size: 20px;
+}
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+  left: 0;
+}
+dt,
+dd {
+  display: inline-table;
+  width: 25%;
+}
+dd {
+  width: 70%;
 }
