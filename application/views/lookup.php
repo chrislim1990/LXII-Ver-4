@@ -9,7 +9,13 @@ echo "<style type='text/css'>";
 echo ".header_banner {background-image:url('$header_img');}";
 echo "</style>";
 
-echo "<div class='header_banner hide-on-small'></div>";
+// Check for Header Image
+if ($header_img) {
+	echo "<div class='header_banner hide-on-small'></div>";
+}else{
+	echo "<div class='block b200'></div>";
+};
+
 ?>
 
 
@@ -41,7 +47,8 @@ echo "<div class='header_banner hide-on-small'></div>";
 		</div>
 		<div class="block b100"></div>
 	</div>
-	<div class="row">
+	<div class="col-md-2"></div>
+	<div class="row pull-left">
 		<div class="col-md-12">
 			<?php
 			$all_imgs = glob("img/portfolio/".$project[0]->url."/imgs/*.jpg");
@@ -68,10 +75,18 @@ echo "<div class='header_banner hide-on-small'></div>";
 
 		<!-- Share -->
 		<div class="portfolio_footer">
+		
+			<?php
+			if(isset($project[0]->web) && $project[0]->web !== ""){
+			echo "<a class='learn_more' href='".$project[0]->web."' target='_blank'>View the Website</a><hr>";
+			};
+			?>
+			
 			<h4>Share</h4>
 			<a class="learn_more icon" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url?>" target="_blank"><i class="fa fa-facebook"></i></a> 
 			<a class="learn_more icon" href="http://twitter.com/home?status=<?php echo $url?>" target="_blank"><i class="fa fa-twitter"></i></a> 
 			<a id="to_all_project" href="portfolio"><h4 class="gn-icon gn-icon-portfolio">All Project</h4></a>
+			<div class="block b50"></div>
 		</div>
 		<div class="block b100"></div>
 

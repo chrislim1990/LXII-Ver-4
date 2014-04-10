@@ -25,6 +25,21 @@ $(document).ready(function() {
     }return false;    
   };
 
+  function productsearch() {
+    var query_value = $('#productsearch').val();
+    if(query_value !== ''){
+      $.ajax({
+        type: "POST",
+        url: "js/livesearch-product.php",
+        data: { query: query_value },
+        cache: false,
+        success: function(html){
+          $("ul.productresults").html(html);
+        }
+      });
+    }return false;    
+  };
+
   $(".gn-search").keyup(function(e) {
     // Set Timeout
     clearTimeout($.data(this, 'timer'));
@@ -41,6 +56,37 @@ $(document).ready(function() {
       $('h4#results-text').fadeIn();
       $(this).data('timer', setTimeout(search, 100));
     };
+  });
+
+  $("#productsearch").keyup(function(e) {
+    // Set Timeout
+    clearTimeout($.data(this, 'timer'));
+
+    // Set Search String
+    var search_string = $(this).val();
+
+    // Do Search
+    if (search_string == '') {
+      $(".productresults").fadeOut();
+      $('h4#results-text').fadeOut();
+    }else{
+      $(".productresults").fadeIn();
+      $(this).data('timer', setTimeout(productsearch, 100));
+    };
+  });
+
+  $('.gn-search').blur(function() {
+    $("#results").fadeOut();
+  });
+
+  $('#productsearch').blur(function() {
+    $(this).val("");
+    $(".productresults").fadeOut();
+  });
+
+  $('#productsearch').focus(function() {
+    $(".productresults").fadeIn();
+    $(this).data('timer', setTimeout(productsearch, 100));
   });
 
 });

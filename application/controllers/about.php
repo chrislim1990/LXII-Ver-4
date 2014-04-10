@@ -6,7 +6,7 @@ class About extends CI_Controller {
 	{
 		$data = array(
 			'title' => "Who We Are",
-			'description' => "Advertising has always been a must to promote every business and product, and this is what LX2 excels in. We create memorables and recognizable identities for our clients, to connect their business or brands to the public. ",
+			'description' => "Advertising has always been a must to promote every business and product, and this is what LX2 excels in.",
 			'path' => "about.php",
 			'faqs' => $this->data_model->get_faqs()
 			);
@@ -17,7 +17,7 @@ class About extends CI_Controller {
 	{
 		$data = array(
 			'title' => "Society Welfare",
-			'description' => "Advertising has always been a must to promote every business and product, and this is what LX2 excels in. We create memorables and recognizable identities for our clients, to connect their business or brands to the public. ",
+			'description' => "We believe that any contribution to the society is worthwhile regardless of its size and scale. ",
 			'path' => "about.php"
 			);
 

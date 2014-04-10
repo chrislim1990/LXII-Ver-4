@@ -82,10 +82,10 @@ $config['priceFormat']            = array('decimals' => 2, 'dec_point' => '.', '
 $config['paypal']['https']        = true;
 
 // Use PayPal sandbox?
-$config['paypal']['sandbox']      = true;
+$config['paypal']['sandbox']      = false;
 
 // The URL a visitor is returned to after completing their PayPal transaction
-$config['paypal']['returnUrl']    = 'http://www.lx2.com.my/public_html/order/success';
+$config['paypal']['returnUrl']    = 'http://www.lx2.com.my/order/success';
 
 // Return Method
 $config['paypal']['rm']    = '2';

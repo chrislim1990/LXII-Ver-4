@@ -6,7 +6,7 @@ class Portfolio extends CI_Controller {
 	{
 		$data = array(
 			'title' => "Portfolio",
-			'description' => "At LX2, We create value and make a difference.",
+			'description' => "Each projects tailored to the client's preferences.",
 			'path' => "portfolio.php",
 			'records' => $this->data_model->get_all_projects()
 			);

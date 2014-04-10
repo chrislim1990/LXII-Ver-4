@@ -87,57 +87,58 @@ $current_item = $records[0];
 		</div>
 
 		<div class="iconholder">
-			<a class="learn_more icon" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flx2.com.my%2Forder%2F<?=$current_item->id ?>" target="_blank"><i class="fa fa-facebook"></i></a> 
-			<a class="learn_more icon" href="https://twitter.com/share?text=%23LX2%20Have%20a%20look%20at" target="_blank"><i class="fa fa-twitter"></i></a> 
-			<a class="learn_more icon" href="http://www.tumblr.com/share/link?url=<?=urlencode("http://lx2.com.my/order/".$current_item->id)?>&name=<?=urlencode($current_item->title." for only MYR".$current_item->price)?>&description=<?=urlencode($current_item->desc)?>" title="Share on Tumblr"><i class="fa fa-tumblr"></i></a> 
-		</div>
-
-		<hr>
-		<p>
-			<b>Unique Design</b><br>
-			We guarantee you that there shall be no two similar design like the one we did for yours.
-			<br>
-			<br>
-			<b>Friend-2-Friend</b><br>
-			You are our buddy! We will do our best to coordinate with you and fulfil all your needs and requests, and even beyond your expectations!
-		</p>
-		<hr>
-		<p>
-			<b>Related Products</b>
-			<div class="row product_related">
-				<?php 
-				$filter = array();
-
-				foreach ($category as $c) {
-						// Find same products which is same set
-					if ($c->set == $records[0]->set && $c->hidden != 1) {
-						$filter[] = $c;
-					};
-				};
-
-				$maxItem = count($filter)>3 ? 4 : count($filter);
-
-				for ($i=0; $i < $maxItem; $i++) { 
-					echo "
-					<a class='col-md-3 col-xs-6' href='order/".$filter[$i]->id."'>
-						<img src='img/products/".$filter[$i]->url.".jpg' onerror='imgError(this);'><br>
-						".$filter[$i]->title."
-					</a>
-					";
-				}
-				?>
-
+			<a class="learn_more icon share-fb" href="https://www.facebook.com/dialog/feed?app_id=233054770218489&display=popup&link=http%3A%2F%2Flx2.com.my%2Forder%2F<?=$current_item->url ?>
+				&redirect_uri=http://www.lx2.com.my/order/<?=$current_item->url ?>"><i class="fa fa-facebook"></i></a> 
+				<a class="learn_more icon" href="https://twitter.com/share?text=%23LX2%20Have%20a%20look%20at" target="_blank"><i class="fa fa-twitter"></i></a> 
+				<a class="learn_more icon" href="http://www.tumblr.com/share/link?url=<?=urlencode("http://lx2.com.my/order/".$current_item->id)?>&name=<?=urlencode($current_item->title." for only MYR".$current_item->price)?>&description=<?=urlencode($current_item->desc)?>" title="Share on Tumblr"><i class="fa fa-tumblr"></i></a> 
 			</div>
-		</p>
-		<hr>
-		<p>
-			<b>Question?</b><br>
-			<i class="fa fa-phone"></i> (+60)3-62418948<br>
-			<i class="fa fa-envelope-o"></i> <a href="mailto:services@lx2.com.my">services@lx2.com.my</a><br>
-		</p>
 
+			<hr>
+			<p>
+				<b>Unique Design</b><br>
+				We guarantee you that there shall be no two similar design like the one we did for yours.
+				<br>
+				<br>
+				<b>Friend-2-Friend</b><br>
+				You are our buddy! We will do our best to coordinate with you and fulfil all your needs and requests, and even beyond your expectations!
+			</p>
+			<hr>
+			<p>
+				<b>Related Products</b>
+				<div class="row product_related">
+					<?php 
+					$filter = array();
+
+					foreach ($category as $c) {
+						// Find same products which is same set
+						if ($c->set == $records[0]->set && $c->hidden != 1) {
+							$filter[] = $c;
+						};
+					};
+
+					$maxItem = count($filter)>3 ? 4 : count($filter);
+
+					for ($i=0; $i < $maxItem; $i++) { 
+						echo "
+						<a class='col-md-3 col-xs-6' href='order/".$filter[$i]->url."'>
+							<img src='img/products/".$filter[$i]->url.".jpg' onerror='imgError(this);'><br>
+							".$filter[$i]->title."
+						</a>
+						";
+					}
+					?>
+
+				</div>
+			</p>
+			<hr>
+			<p>
+				<b>Question?</b><br>
+				<i class="fa fa-phone"></i> (+60)3-62418948<br>
+				<i class="fa fa-envelope-o"></i> <a href="mailto:services@lx2.com.my">services@lx2.com.my</a><br>
+			</p>
+
+		</div>
 	</div>
-</div>
 </div>
 
 <div class="block b100"></div>
@@ -157,10 +158,10 @@ $(document).ready(function() {
 	$('#cart_count').text($('#total_item').text());
 });
 
-var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-body = document.body;
+var menuRight = document.getElementById( 'cbp-spmenu-s2' );
+var body = document.body;
 
-$('#product_place_order,#view_cart,#cbp-overlay').click(function(){
+$('#product_place_order,#view_cart,#cbp-overlay,#keep_shopping').click(function(){
 
 	$('#cbp-overlay').toggle();
 	classie.toggle( this, 'active' );
@@ -174,28 +175,28 @@ $('#product_place_order,#view_cart,#cbp-overlay').click(function(){
 	$('[name=my-item-id]').val(total_item_in_cart);
 
 });
-	// Extra Information
-	$("#add_pax,#pages")
-	.change(function () {
-		default_price = parseInt('<?php echo $product_price; ?>');
-		
-		switch ($(this).attr('id')) { 
-			case 'add_pax': 
-			additional_charge = 100;
-			price = ($(this).val()*additional_charge)+default_price;
-			break;
-			case 'pages':
-			if ($(this).val()<= 10) {
-				price = $(this).val()*default_price;				
-			}else{
-				price = $(this).val()*default_price*0.8;				
-			}; 
-			break;
-		}
-		
-		$('[name=my-item-price]').val(price);
+
+// Extra Information
+$("#add_pax,#pages").change(function () {
+	default_price = parseInt('<?php echo $product_price; ?>');
+	
+	switch ($(this).attr('id')) { 
+		case 'add_pax': 
+		additional_charge = 100;
+		price = ($(this).val()*additional_charge)+default_price;
+		break;
+		case 'pages':
+		if ($(this).val()<= 10) {
+			price = $(this).val()*default_price;				
+		}else{
+			price = $(this).val()*default_price*0.8;				
+		}; 
+		break;
+	}
+	
+	$('[name=my-item-price]').val(price);
 		// alert(price);
 	})
-	.change();
+.change();
 
 </script>

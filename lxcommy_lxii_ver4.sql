@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.0
+-- version 4.0.8
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 24, 2014 at 08:38 AM
--- Server version: 5.5.25
--- PHP Version: 5.4.4
+-- Generation Time: Apr 10, 2014 at 01:16 PM
+-- Server version: 5.5.35-cll
+-- PHP Version: 5.3.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `lxii_ver4`
+-- Database: `lxcommy_lxii_ver4`
 --
 
 -- --------------------------------------------------------
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `faqs`
 --
 
-CREATE TABLE `faqs` (
+CREATE TABLE IF NOT EXISTS `faqs` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `question` text NOT NULL,
   `answer` text NOT NULL,
@@ -49,7 +49,7 @@ INSERT INTO `faqs` (`id`, `question`, `answer`) VALUES
 -- Table structure for table `forms`
 --
 
-CREATE TABLE `forms` (
+CREATE TABLE IF NOT EXISTS `forms` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` varchar(9999) NOT NULL,
@@ -72,7 +72,7 @@ INSERT INTO `forms` (`id`, `title`, `content`) VALUES
 -- Table structure for table `portfolio`
 --
 
-CREATE TABLE `portfolio` (
+CREATE TABLE IF NOT EXISTS `portfolio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `desc` text NOT NULL,
@@ -82,25 +82,29 @@ CREATE TABLE `portfolio` (
   `color` varchar(255) NOT NULL DEFAULT 'white',
   `featured` int(11) NOT NULL DEFAULT '0',
   `hidden` tinyint(1) NOT NULL,
+  `cat` varchar(255) NOT NULL DEFAULT 'placeholder',
+  `web` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `portfolio`
 --
 
-INSERT INTO `portfolio` (`id`, `title`, `desc`, `services`, `url`, `year`, `color`, `featured`, `hidden`) VALUES
-(3, 'Icy Roll', 'With its idea stems upon the feeling of happiness and joyfulness, we created a bright and refreshing look for Icy Roll. Audiences would surely love the colorful and refreshing sight of Icy Roll''s corporate items in hot summer.', 'Branding, Name Card, Kiosk, Print Ads', 'icyroll', 2013, 'black', 0, 1),
-(4, 'Sentosa Villa', 'In the first sight, the website for Sentosa Villa would bestows the feeling of warm and elegance to its audiences. That is what the hotel owner wishes to deliver: to let the audiences feel as welcoming as possible. \r\n<br><br>\r\nWe used fonts and colors of classical feel to further enhance the elegant feeling a hotel or family resort should have. The contents is delivered in a clean and simple way to aids navigation as older family members were added into our consideration.', 'Photography, Web Design & Coding', 'sentosa', 2012, 'white', 1, 0),
-(5, 'Hock Hean Hui', 'Website for Hock Hean Hui aims at middle age workers and truck drivers, so it mostly emphasizes on the visibility of contents. Thus, we made the website as simple as possible, while also comes with adequate amount of design elements to make it looks modern and clean.', 'Web Design & Coding, Company Profile', 'hhh', 2012, 'black', 0, 0),
-(7, 'Nowax', 'We designed Nowax''s website to be high-tech and modern looking, as suitable to how its industry supposed to be. The color combination of teal and metallic grey clearly delivers the theme of the whole industry.', 'Branding, Logo, Packaging, Web Design & Coding', 'nowax', 2012, 'black', 0, 0),
-(8, 'Logo', 'The art of designing a logo may looks like a simple task, but to be a truly perfect logo, one has to be with these three major factors: unique, memorable and accurate. \nTo be unique is to stand out among your business opponents. \nTo be memorable is to be able to stays inside your audiences'' mind easily, and attractively. \nLastly, to be accurate is that the logo could delivers your business directly precisely to the audiences. \nWe at LX2 design studios always do our best to put these three major factors into your design.', 'N/A', 'logo', 2013, 'black', 0, 0),
-(9, 'Dukes', 'Dukes''s branding is done with the expression of professionalism in mind, to bolster the confidence of audiences and encourage them to deal with someone that has the professionalism to deal with their queries.', 'Branding, Logo, Name Card, Letterhead', 'dukes', 2013, 'black', 0, 0),
-(10, 'New Mogen', 'An investors'' club, New Mogen is designed to provide audiences with the feel of confidence and high-class standard, as if taking part will ensures an uplifting to your current living.', 'Branding, Logo, Photography, Website Design & Coding', 'nm', 2013, 'black', 0, 0),
-(11, 'JCI', 'The entry ticket is designed to fit the elegance of the event.', 'Ticket Design', 'jci', 2012, 'black', 0, 0),
-(12, 'Hunny B', 'The reason we use white and clean background for Hunny B is to attract the audiences with the colorfulness of photos and images in the website. \r\n<br><br>\r\nThe color usage is designed to be brighter and more lively to attract audiences from lower age range.', 'Branding . Web', 'hunnyb', 2013, 'black', 0, 1),
-(13, 'Ericsson', 'A video presentation made for Ericsson, simple while colorfully presented in the same time.', 'Animation', 'ericsson', 2013, 'black', 0, 0),
-(14, 'Beiersdorf', 'An email greeting card made for Beiersdorf, infused with joyous Christmas mood while remain clean and simple in the same time.', 'Email Greeting Card', 'bdf', 2013, 'white', 0, 0);
+INSERT INTO `portfolio` (`id`, `title`, `desc`, `services`, `url`, `year`, `color`, `featured`, `hidden`, `cat`, `web`) VALUES
+(3, 'Icy Roll', 'With its idea stems upon the feeling of happiness and joyfulness, we created a bright and refreshing look for Icy Roll. Audiences would surely love the colorful and refreshing sight of Icy Roll''s corporate items in hot summer.', 'Branding, Name Card, Kiosk, Print Ads', 'icy-roll', 2013, 'black', 0, 1, 'placeholder', ''),
+(4, 'Sentosa Villa', 'In the first sight, the website for Sentosa Villa would bestows the feeling of warm and elegance to its audiences. That is what the hotel owner wishes to deliver: to let the audiences feel as welcoming as possible. \r\n<br><br>\r\nWe used fonts and colors of classical feel to further enhance the elegant feeling a hotel or family resort should have. The contents is delivered in a clean and simple way to aids navigation as older family members were added into our consideration.', 'Photography, Web Design & Coding', 'sentosa-villa', 2012, 'white', 1, 0, 'placeholder', ''),
+(5, 'Hock Hean Hui', 'Website for Hock Hean Hui aims at middle age workers and truck drivers, so it mostly emphasizes on the visibility of contents. Thus, we made the website as simple as possible, while also comes with adequate amount of design elements to make it looks modern and clean.', 'Web Design & Coding, Company Profile', 'hock-hean-hui', 2012, 'black', 0, 0, 'placeholder', 'http://www.hockheanhui.com/index.php'),
+(7, 'Nowax', 'We designed Nowax''s website to be high-tech and modern looking, as suitable to how its industry supposed to be. The color combination of teal and metallic grey clearly delivers the theme of the whole industry.', 'Branding, Logo, Packaging, Web Design & Coding', 'nowax', 2012, 'black', 0, 0, 'placeholder', 'http://nowaxsb.com/'),
+(8, 'Logo Collection', 'The art of designing a logo may looks like a simple task, but to be a truly perfect logo, one has to be with these three major factors: unique, memorable and accurate. \nTo be unique is to stand out among your business opponents. \nTo be memorable is to be able to stays inside your audiences'' mind easily, and attractively. \nLastly, to be accurate is that the logo could delivers your business directly precisely to the audiences. \nWe at LX2 design studios always do our best to put these three major factors into your design.', 'N/A', 'logo-collection', 2013, 'black', 0, 0, 'placeholder', ''),
+(9, 'Dukes', 'Dukes''s branding is done with the expression of professionalism in mind, to bolster the confidence of audiences and encourage them to deal with someone that has the professionalism to deal with their queries.', 'Branding, Logo, Name Card, Letterhead', 'dukes', 2013, 'black', 0, 0, 'placeholder', ''),
+(10, 'New Mogen', 'An investors'' club, New Mogen is designed to provide audiences with the feel of confidence and high-class standard, as if taking part will ensures an uplifting to your current living.', 'Branding, Logo, Photography, Website Design & Coding', 'new-mogen-properties', 2013, 'black', 0, 0, 'placeholder', 'http://newmogenprop.com/'),
+(11, 'JCI', 'The entry ticket is designed to fit the elegance of the event.', 'Ticket Design', 'jci', 2012, 'black', 0, 0, 'placeholder', ''),
+(12, 'Hunny B', 'The reason we use white and clean background for Hunny B is to attract the audiences with the colorfulness of photos and images in the website. \r\n<br><br>\r\nThe color usage is designed to be brighter and more lively to attract audiences from lower age range.', 'Branding . Web', 'hunny-b', 2013, 'black', 0, 1, 'placeholder', ''),
+(13, 'Ericsson', 'A video presentation made for Ericsson, simple while colorfully presented in the same time.', 'Animation', 'ericsson', 2013, 'black', 0, 0, 'placeholder', ''),
+(14, 'Beiersdorf', 'An email greeting card made for Beiersdorf, infused with joyous Christmas mood while remain clean and simple in the same time.', 'Email Greeting Card', 'beiersdorf', 2013, 'white', 0, 0, 'placeholder', ''),
+(15, 'Leisure Travel', 'Leisure travel is designed with class and trendy in mind. In here we promote travel as a lifestyle, and a classy way to indulge yourself.', 'Magazine', 'leisure-travel', 2013, 'white', 0, 0, 'placeholder', ''),
+(16, '探世界', '探世界 is designed to be fun and full of thrills, as it promotes travel as a joyous experience to explore the world and absorbing all kind of colorful cultures.', 'Magazine', 'leisure-travel-chinese', 2013, 'white', 0, 0, 'placeholder', '');
 
 -- --------------------------------------------------------
 
@@ -108,7 +112,7 @@ INSERT INTO `portfolio` (`id`, `title`, `desc`, `services`, `url`, `year`, `colo
 -- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL,
@@ -126,35 +130,35 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `price`, `desc`, `hidden`, `featured`, `cat`, `set`, `url`) VALUES
-(1, 'Logo Design', '800', 'An unique logo to represents your business idea, philosophy, and value.', 0, 1, 'graphic', 'branding', 'logo'),
+(1, 'Logo Design', '800', 'An unique logo to represents your business idea, philosophy, and value.', 0, 1, 'graphic', 'branding', 'logo-design'),
 (2, 'Letterhead', '300', 'A kind reminder of your business and how to contact you for fellow customers.', 0, 1, 'graphic', 'stationary', 'letterhead'),
 (3, 'Envelope', '200', 'Impress your customers with every letter you send.', 0, 1, 'graphic', 'stationary', 'envelope'),
-(4, 'Business Card', '300', 'An unique presentation for yourself.', 0, 1, 'graphic', 'stationary', 'card'),
-(5, 'Brochure/Flyer', '200/side', 'A medium to promote your awesome products, with style and class.', 0, 0, 'graphic', 'printing', 'brochure'),
+(4, 'Business Card', '300', 'An unique presentation for yourself.', 0, 1, 'graphic', 'stationary', 'biz-card'),
+(5, 'Brochure/Flyer', '200/side', 'A medium to promote your awesome products, with style and class.', 0, 0, 'graphic', 'printing', 'brochure-flyer'),
 (8, 'Poster', '500', 'Visualize your business to impress the mass and impact their senses.', 0, 0, 'graphic', 'printing', 'poster'),
-(9, 'Pocket Folder', '250', 'Design an logo that matches your bus', 0, 0, 'graphic', 'branding', 'folder'),
-(10, 'Product Label', '250', 'Attract customers to put your products into their cart with an impressive label.', 1, 0, 'graphic', 'branding', 'label'),
-(11, 'Newsletter - Web', '600', 'A nicely designed news is always better than the dull one!', 0, 0, 'web', 'advertising', 'newsletter_web'),
+(9, 'Pocket Folder', '250', 'Design an logo that matches your bus', 0, 0, 'graphic', 'branding', 'pocket-folder'),
+(10, 'Product Label', '250', 'Attract customers to put your products into their cart with an impressive label.', 1, 0, 'graphic', 'branding', 'product-label'),
+(11, 'Newsletter - Web', '600', 'A nicely designed news is always better than the dull one!', 0, 0, 'web', 'advertising', 'newsletter-web'),
 (12, 'Newsletter - Print', '350', 'A nicely designed news is always better than the dull one!', 1, 0, 'print', 'advertising', 'printnews'),
-(13, 'Print Advertising', '1000', 'Stand out from the others inside magazine, newspaper or yellow pages!', 0, 0, 'print', 'advertising', 'print_ad'),
+(13, 'Print Advertising', '1000', 'Stand out from the others inside magazine, newspaper or yellow pages!', 0, 0, 'print', 'advertising', 'print-ads'),
 (21, 'Booklet', '100/pg', 'Make it into anything you can think of - be it a premium brochure, a company profile, or an awesome product catalog!\n\n<table class=''price_rate''>\n	<tr>\n		<th>Quantity</th>\n		<th>Rate</th>\n	</tr>\n	<tr>\n		<td><= 10</td>\n		<td>100</td>\n	</tr>\n	<tr>\n		<td>> 10</td>\n		<td>80</td>\n	</tr>\n</table>', 0, 0, 'print', 'booklet', 'booklet'),
 (26, 'Mascot Design', '1000', 'Materialize your business into an awesome character to attract people''s eyes!', 0, 0, 'branding', 'branding', 'mascot'),
 (27, 'CD/DVD', '300', 'A well-received and friendly medium to provide information to your clients and customers.', 0, 0, 'print', 'branding', 'cd'),
-(28, 'Non Woven Bag', '150/side', 'Environment-friendly and stylish in the same time.', 0, 0, 'print', 'branding', 'bag'),
+(28, 'Nonwoven Bag', '150/side', 'Environment-friendly and stylish in the same time.', 0, 0, 'print', 'branding', 'nonwoven-bag'),
 (29, 'Ticket', '150/side', 'An awesome ticket that can be shown to an event''s staffs, or your customers'' friends in his collectibles cabinet.', 0, 0, 'print', 'branding', 'ticket'),
 (30, 'Tshirt', '300', 'Be it your staffs or your customers, have them wear it with pride and joy!', 0, 0, 'print', 'branding', 'tshirt'),
 (35, 'Pops - Large (< 8ft)', '2000', 'A bright and refreshing sight to attract passerby.', 1, 0, 'print', 'advertising', 'popslarge'),
 (36, 'Packaging', '800', 'Something pretty to contain your product while impressing your clients.', 0, 0, 'packaging', 'branding', 'packaging'),
-(37, 'Web Banner Design', '300', 'Attract users better than other spam-like ads!', 0, 0, 'web', 'advertising', 'web_banner'),
-(38, 'Royalty Photo', '50/pic', 'Want a beautiful photo but don''t want to hire a professional photographer? Here''s a solution!', 0, 0, 'photography', 'photography', 'royalty_photo'),
-(39, 'Professional Shooting', '60/pic', 'Delivers your message with a professionally-shot photo.', 0, 0, 'photography', 'photography', 'photo2'),
+(37, 'Web Banner Design', '300', 'Attract users better than other spam-like ads!', 0, 0, 'web', 'advertising', 'web-banner'),
+(38, 'Royalty Photo', '50/pic', 'Want a beautiful photo but don''t want to hire a professional photographer? Here''s a solution!', 0, 0, 'photography', 'photography', 'royalty-photo'),
+(39, 'Professional Shooting', '60/pic', 'Delivers your message with a professionally-shot photo.', 0, 0, 'photography', 'photography', 'pro-photo'),
 (41, 'Banner Design', '600', 'Design an banner that matches your business.', 1, 0, 'print', 'advertising', 'banner'),
 (42, 'Bunting', '500', 'Easily promotes your business by attracting the passerby!', 0, 0, 'print', 'advertising', 'bunting'),
 (43, 'Vehicle Graphic', '800', 'An awesome moving billboard to promote your business!', 0, 0, 'print', 'advertising', 'vehicle'),
 (44, 'Backdrop', '800', 'Promotes your business clearly and powerfully', 1, 0, 'print', 'advertising', 'backdrop'),
 (45, 'Signage', '800', 'An memorable signage to impress and impact the passerby.', 1, 0, 'print', 'advertising', 'signage'),
 (46, 'Display/Booth Design - 20sq.ft', '1000', 'A bright and refreshing sight to attract passerby.', 1, 0, 'print', 'advertising', 'booth'),
-(47, 'Website', '500/pg', 'Land your company into the World Wide Web while stand out differently!', 0, 0, 'web', 'branding', 'website'),
+(47, 'Website Design', '500/pg', 'Land your company into the World Wide Web while stand out differently!', 0, 0, 'web', 'branding', 'web-design'),
 (48, 'Website Coding', '500/pg', 'We squishes bugs outta your website''s coding and ensure them clean and shiny.', 0, 0, 'web', 'branding', 'coding'),
 (51, 'Copywriting', '400', 'A slogan, or a short text to tell people about the story of your business, we can write it in the most exciting way.', 1, 0, 'branding', 'branding', 'copywrite'),
 (52, 'Animation', '1000/mins', 'Want to impress your audiences with something during a presentation or conference? Have us make you a wonder animation!', 0, 0, 'web', 'branding', 'animation');
@@ -165,25 +169,31 @@ INSERT INTO `products` (`id`, `title`, `price`, `desc`, `hidden`, `featured`, `c
 -- Table structure for table `search`
 --
 
-CREATE TABLE `search` (
+CREATE TABLE IF NOT EXISTS `search` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL DEFAULT '',
   `cat` varchar(255) NOT NULL DEFAULT 'menu',
   `url` varchar(255) NOT NULL DEFAULT 'null',
+  `hidden` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `search`
 --
 
-INSERT INTO `search` (`id`, `title`, `cat`, `url`) VALUES
-(1, 'Home', 'menu', '#1'),
-(2, 'About LX2', 'menu', 'about'),
-(3, 'Portfolio', 'menu', 'portfolio'),
-(4, 'Our Mission', 'menu', 'mission'),
-(5, 'Products', 'menu', 'products'),
-(6, 'Contact', 'menu', 'contact');
+INSERT INTO `search` (`id`, `title`, `cat`, `url`, `hidden`) VALUES
+(1, 'Home', 'menu', '#1', 0),
+(2, 'About LX2', 'menu', 'about', 0),
+(3, 'Portfolio', 'menu', 'portfolio', 0),
+(4, 'Our Mission', 'menu', 'mission', 0),
+(5, 'Products', 'menu', 'products', 0),
+(6, 'Contact', 'menu', 'contact', 0),
+(7, 'Society Welfare', 'menu', 'society-welfare', 0),
+(8, 'Products - Web', 'menu', 'order?cat=web', 1),
+(9, 'Products - Graphic', 'menu', 'order?cat=print', 1),
+(10, 'Products - Branding', 'menu', 'order?cat=branding', 1),
+(11, 'Blog', 'menu', 'http://blog.lx2.com.my', 1);
 
 -- --------------------------------------------------------
 
@@ -191,7 +201,7 @@ INSERT INTO `search` (`id`, `title`, `cat`, `url`) VALUES
 -- Table structure for table `slideshows`
 --
 
-CREATE TABLE `slideshows` (
+CREATE TABLE IF NOT EXISTS `slideshows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `project` varchar(255) NOT NULL,
   `categories` varchar(255) NOT NULL,
@@ -216,7 +226,7 @@ INSERT INTO `slideshows` (`id`, `project`, `categories`, `source`, `link`) VALUE
 -- Table structure for table `testimonial`
 --
 
-CREATE TABLE `testimonial` (
+CREATE TABLE IF NOT EXISTS `testimonial` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `text` text NOT NULL,

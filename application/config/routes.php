@@ -41,9 +41,12 @@
 $route['default_controller'] = "welcome";
 //Re-route Sample
 //$route['article/:num'] = "article/index";
+$route['about/society-welfare'] = "about/society_welfare";
 $route['portfolio/(:any)'] = "portfolio/lookup";
-$route['order/(:num)'] = "order/result";
-$route['order/details/(:num)'] = "order/details";
+$route['project'] = "portfolio/order";
+$route['order/success'] = "order/success";
+$route['order/project/(:any)'] = "order/project";
+$route['order/(:any)'] = "order/result";
 $route['portfolio/search/(:any)/(:any)'] = "portfolio/search";
 $route['404_override'] = '';
 

@@ -487,7 +487,6 @@ if ($isCheckout !== true) {
 		$inputType = "image";
 		$src = " src='{$config['button']['checkout']}' alt='{$config['text']['checkout']}' title='' ";
 	}
-	$str_checkout = "<button class='learn_more'>Keep Shopping</button>";
 	$str_checkout .= "<input type='$inputType' $src id='jcart-checkout' name='jcartCheckout' class='jcart-button learn_more' value='Continue' />\n";
 }
 
@@ -495,6 +494,7 @@ $str_subtotal = number_format($this->subtotal, $priceFormat['decimals'], $priceF
 
 $cart_html=<<<EOT
 $errorMessage
+<div id='keep_shopping' class='learn_more'>Keep Shopping</div>
 <form method='post' action='$checkout'>
 <input type='hidden' name='jcartToken' value='{$_SESSION['jcartToken']}' />
 
@@ -510,6 +510,7 @@ EOT;
 // Shopping Cart, total $this->itemCount items
 
 echo $cart_html;
+echo "<div id='cart_items'><div class='cart_wrapper'>";
 
 		// If any items in the cart
 if($this->itemCount > 0) {
@@ -549,6 +550,7 @@ EOT;
 
 echo $item_html;
 }
+echo "</div></div>";
 }
 		// The cart is empty
 else {

@@ -36,7 +36,7 @@
 
 // Define Output HTML Formating
 	$html = '';
-	$html .= '<li class="result">';
+	$html .= '<li class="productresult">';
 	$html .= '<a target="_blank" href="urlString">';
 	$html .= '<b>nameString</b>';
 	$html .= '</a>';
@@ -49,7 +49,7 @@
 // Check Length More Than One Character
 	if (strlen($search_string) >= 1 && $search_string !== ' ') {
 	// Build Query
-		$query = 'SELECT id,title,url,cat,hidden FROM portfolio WHERE title LIKE "%'.$search_string.'%" AND hidden != 1 UNION SELECT id,title,url,cat,hidden FROM products WHERE title LIKE "%'.$search_string.'%" AND hidden != 1 UNION SELECT id,title,url,cat,hidden FROM search WHERE title LIKE "%'.$search_string.'%" AND hidden != 1 ORDER BY id';
+		$query = 'SELECT id,title,url,cat,hidden FROM products WHERE title LIKE "%'.$search_string.'%" AND hidden != 1';
 
 	// Do Search
 		$result = $tutorial_db->query($query);

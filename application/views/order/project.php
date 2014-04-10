@@ -85,6 +85,8 @@ $actualname = "";
 			echo "</div>";
 
 			echo '<input type="submit" name="project_submit" value="Next" class="learn_more">';
+			echo '<a onclick="goBack()" class="learn_more">Back</a>';
+
 			echo form_close();
 		}else{
 			// Reset current count to 4 so that we can use it for sidebar summary
@@ -102,7 +104,20 @@ $actualname = "";
 					if ($key == 'title') {
 						echo "<table class='table table-hover'>";
 						echo "<h3>".$value."</h3>";
-					}else if ($value && $key!='client_submit' && $key!='project_submit') {
+					}else if ($value && is_array($value)){
+						$dah = "";
+						// Remove Underscore
+						$key = str_replace('_',' ',$key);
+						// Convert to title case
+						$key = ucwords(strtolower($key));
+						foreach ($value as $v) {
+							$v = str_replace('_',' ',$v);
+							$v = ucwords($v);
+							$dah .= $v."<br>";
+						};
+						echo "<tr><td>".$key."</td><td>".$dah."</td></tr>";
+
+					} else if ($value && $key!='client_submit' && $key!='project_submit') {
 						// Remove Underscore
 						$key = str_replace('_',' ',$key);
 						// Convert to title case
@@ -154,6 +169,16 @@ $actualname = "";
 						$key = ucwords(strtolower($key));
 						$gah = implode(', ', $value);
 						$str .=  '<dt><span>'.$key.':</span></dt><dd><span>'.$gah.'</span></dd><hr>';
+					} else if($value && is_array($value)) {
+						$dah2 = "";
+						foreach ($value as $v) {
+							$v = str_replace('_',' ',$v);
+							$v = ucwords($v);
+							$dah2 .= $v."<br>";
+						};
+						$key = str_replace('_',' ',$key);
+						$key = ucwords(strtolower($key));
+						$str .=  '<dt><span>'.$key.':</span></dt><dd><span>'.$dah2.'</span></dd><hr>';
 					} else {
 
 						$key = str_replace('_',' ',$key);
@@ -292,4 +317,9 @@ $actualname = "";
 		}
 	});
 });
+
+function goBack()
+{
+	window.history.back()
+}
 </script>

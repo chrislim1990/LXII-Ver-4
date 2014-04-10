@@ -39,11 +39,11 @@ class Data_model extends CI_Model{
 	}
 	function get_product(){
 		$product_id = $this->uri->segment(2);
-		return $this->db->get_where('products', array('id' => $product_id))->result();
+		return $this->db->get_where('products', array('url' => $product_id))->result();
 	}
 	function get_similiar(){
 		$product_id = $this->uri->segment(2);
-		return $this->db->get_where('products', array('id !=' => $product_id))->result();
+		return $this->db->get_where('products', array('url !=' => $product_id))->result();
 	}
 
 	function show_records($num){
